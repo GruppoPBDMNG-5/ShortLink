@@ -16,49 +16,21 @@ import static spark.SparkBase.setIpAddress;
  */
 public class UrlResource {
     private static final String API_CONTEXT = "/api/v1";
-    private UrlService urlService;
+ private DAO dao;
     public UrlResource(UrlService urlService){
-        this.urlService=urlService;
+        this.dao=new DAO(urlService);
         setupEndpoints();
     }
 
     private void setupEndpoints() {
 
-        post(API_CONTEXT + "/shortCustom", "application/json", (request, response) -> {
-            response.status(201);
-           return "localhost/" + request.body();
-        },new JsonTransformer());
+        post(API_CONTEXT + "/shortCustom", "application/json", (request, response) -> dao.generaUrlCustom(request.body()),new JsonTransformer());
 
-        post(API_CONTEXT + "/short", "application/json", (request, response) -> {
-            String url;
-             try{
-             url=urlService.findLongURL(request.body()).getShortURL();}
-             catch (NullPointerException e){
-                 url=null;
-
-             }
+        post(API_CONTEXT + "/short", "application/json", (request, response) -> dao.creaUrlShort(request.body()),new JsonTransformer());
 
 
 
-           if(url!=null){
-               response.status(201);
-
-               return url;}
-            else{
-         String  URLSHORT=URLShortener.shortenURL(request.body());
-            urlService.createNewURL(request.body(),URLSHORT);
-               response.status(201);
-
-               return URLSHORT;
-           }
-        },new JsonTransformer());
-
-
-
-        post(API_CONTEXT+"/risultato","application/json",(request, response) ->
-        {
-            response.status(201);
-                return urlService.findURL(request.body()).getLongURL();}, new JsonTransformer());
+        post(API_CONTEXT+"/risultato","application/json",(request, response) ->dao.espandiUrl(request.body()), new JsonTransformer());
     }
 
     }

@@ -24,14 +24,25 @@ app.config(function ($routeProvider) {
 
 app.controller('CreateShort', function ($scope, $http) {
     $scope.createUrl=function(){
-	$http.post('/api/v1/short',$scope.URL.longURL).success(function(data){
-	$scope.URL.short=data;
-	})
-
+        if(!$scope.URL.customURL) {
+	        $http.post('/api/v1/short',$scope.URL.longURL).success(function(data){
+	        $scope.URL.short=data;
+	    })}else {
+            $http.post('/api/v1/shortCustom',$scope.URL).success(function(data){
+            if(data=='"fallito"'){
+            window.alert("Testo già in uso")
+            $scope.URL.short='';
+            }else{
+                $scope.URL.short=data; }
+            })
+        }
 	}
 
 
+
 });
+
+
 app.controller('longUrl',function($scope,$http,$location){
 
 $http.post('/api/v1/risultato',$location.absUrl()).success(function(data){

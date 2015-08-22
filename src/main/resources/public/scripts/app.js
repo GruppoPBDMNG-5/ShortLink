@@ -28,16 +28,17 @@ app.controller('CreateShort', function ($scope, $http) {
 	        $http.post('/api/v1/short',$scope.URL.longURL).success(function(data){
 	        $scope.URL.short=data;
 	    })}else {
-            $http.post('/api/v1/shortCustom',$scope.URL.customURL).success(function(data){
-                $scope.URL.short=data;
+            $http.post('/api/v1/shortCustom',$scope.URL).success(function(data){
+            if(data=='"fallito"'){
+            window.alert("Testo già in uso")
+            $scope.URL.short='';
+            }else{
+                $scope.URL.short=data; }
             })
         }
 	}
 
-    $scope.createCustomUrl=function(){
 
-
-    }
 
 });
 
