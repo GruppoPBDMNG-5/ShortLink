@@ -24,6 +24,11 @@ public class UrlResource {
 
     private void setupEndpoints() {
 
+        post(API_CONTEXT + "/shortCustom", "application/json", (request, response) -> {
+            response.status(201);
+           return "localhost/" + request.body();
+        },new JsonTransformer());
+
         post(API_CONTEXT + "/short", "application/json", (request, response) -> {
             String url;
              try{

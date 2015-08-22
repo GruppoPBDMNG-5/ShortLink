@@ -22,10 +22,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="ShortLink" />
         <module name="URLSHORT" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ShortLink" target="1.8" />
       <module name="URLSHORT" target="1.8" />
     </bytecodeTargetLevel>
   </component>
