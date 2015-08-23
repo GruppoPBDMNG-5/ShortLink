@@ -1,18 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="763c5455-d918-4819-8059-3de808d4d969" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/css/materialize.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/css/materialize.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/shorterner/Bootstrap.class" afterPath="$PROJECT_DIR$/target/classes/com/shorterner/Bootstrap.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/shorterner/Bootstrap.java" afterPath="$PROJECT_DIR$/src/main/java/com/shorterner/Bootstrap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/public/scripts/app.js" afterPath="$PROJECT_DIR$/src/main/resources/public/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/public/scripts/app.js" afterPath="$PROJECT_DIR$/target/classes/public/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/public/views/createShort.html" afterPath="$PROJECT_DIR$/src/main/resources/public/views/createShort.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/public/views/createShort.html" afterPath="$PROJECT_DIR$/target/classes/public/views/createShort.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/public/index.html" afterPath="$PROJECT_DIR$/target/classes/public/index.html" />
+    <list default="true" id="763c5455-d918-4819-8059-3de808d4d969" name="Default" comment="Pagina iniziale e view modificate con elementi in stile material design, #2">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/material-design-icons/Material-Design-Icons.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/material-design-icons/Material-Design-Icons.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/material-design-icons/Material-Design-Icons.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/material-design-icons/Material-Design-Icons.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Bold.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Bold.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Bold.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Light.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Light.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Light.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Medium.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Medium.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Medium.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Regular.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Regular.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Thin.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Thin.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/roboto/Roboto-Thin.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/material-design-icons/LICENSE.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/font/material-design-icons/Material-Design-Icons.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/js/init.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/js/materialize.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/js/materialize.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="URLSHORT.iws" />
@@ -37,11 +50,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="createShort.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="createShort.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/public/views/createShort.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9946808">
-              <caret line="22" column="121" selection-start-line="22" selection-start-column="121" selection-end-line="22" selection-end-column="121" />
+            <state vertical-scroll-proportion="-15.038462">
+              <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/public/scripts/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.028006589">
+              <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -70,6 +93,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="dmenga &lt;davidemenga92@gmail.com&gt;" />
         <option value="MDavideITPS" />
         <option value="dmenga" />
       </list>
@@ -255,6 +279,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="URLSHORT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ShortLink" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -591,7 +645,7 @@
       <workItem from="1440264220041" duration="41000" />
       <workItem from="1440264624203" duration="763000" />
       <workItem from="1440265752994" duration="4133000" />
-      <workItem from="1440322828297" duration="733000" />
+      <workItem from="1440322828297" duration="1566000" />
     </task>
     <task id="LOCAL-00001" summary="progetto base&#10;">
       <created>1440079514967</created>
@@ -599,11 +653,17 @@
       <option name="project" value="LOCAL" />
       <updated>1440079514967</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Pagina iniziale e view modificate con elementi in stile material design">
+      <created>1440323648373</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1440323648373</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12511000" />
+    <option name="totallyTimeSpent" value="13344000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -616,11 +676,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32283464" sideWeight="0.48473284" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32283464" sideWeight="0.48473284" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32755905" sideWeight="0.34260616" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -629,7 +689,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2488189" sideWeight="0.74351144" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32755905" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17203514" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17203514" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1065,13 +1125,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/public/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11358575">
@@ -1099,8 +1152,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/public/views/createShort.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9946808">
-          <caret line="22" column="121" selection-start-line="22" selection-start-column="121" selection-end-line="22" selection-end-column="121" />
+        <state vertical-scroll-proportion="-15.038462">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.028006589">
+          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
           <folding />
         </state>
       </provider>
