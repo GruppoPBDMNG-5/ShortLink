@@ -1,5 +1,5 @@
 /**
- * Created by shekhargulati on 10/06/14.
+ * Created by Gioele on 10/08/15.
  */
 
 var app = angular.module('shortLink', [
@@ -28,36 +28,28 @@ app.controller('CreateShort', function ($scope, $http) {
 	        $http.post('/api/v1/short',$scope.URL.longURL).success(function(data){
 	        $scope.URL.short=data;
 	    })}else {
-            $http.post('/api/v1/shortCustom',$scope.URL).success(function(data){
+            //$http.post('/api/v1/shortCustom',$scope.URL).success(function(data){
             if(data=='"fallito"'){
-
- Materialize.toast('Parola non disponibile riprovare', 4000)
-             $scope.URL.short='';
+                 Materialize.toast('Parola non disponibile riprovare', 4000)
+                 $scope.URL.short='';
             }else{
-                $scope.URL.short=data; }
+                 $scope.URL.short=data; }
             })
         }
 	}
 
-
-
 });
 
 
-app.controller('longUrl',function($scope,$http,$location){
+app.controller('longUrl',function($scope, $http, $location){
 
-$http.post('/api/v1/risultato',$location.absUrl()).success(function(data){
-data=data.replace(/\"/g,"");
-console.log(data);
-location.href='http://'+data;
-})
-
-
-
-
-
-
+    $http.post('/api/v1/risultato',$location.absUrl()).success(function(data){
+        data=data.replace(/\"/g,"");
+        console.log(data);
+        location.href='http://'+data;
+    })
 });
+
 app.controller('CreateCtrl', function ($scope, $http, $location) {
 
     $scope.createUrl = function () {
