@@ -18,7 +18,7 @@ public class UrlService {
     public UrlService(DB db) {
         this.db = db;
         this.collection = db.getCollection("url");
-        this.collectionCustom=db.getCollection("customUrl");
+        this.collectionCustom = db.getCollection("customUrl");
         this.collectionCustom.createIndex(new BasicDBObject("customURL", 1).append("unique", true));
 
         this.collection.createIndex(new BasicDBObject("longURL", 1).append("unique", true));
@@ -26,25 +26,28 @@ public class UrlService {
 
     }
 
-    public void createNewURL(String longURL,String shortURL){
-          URL url=new URL(longURL,shortURL);
+    public void createNewURL(String longURL, String shortURL) {
+        URL url = new URL(longURL, shortURL);
         collection.insert(new BasicDBObject("longURL", url.getLongURL()).append("shortURL", url.getShortURL()));
     }
 
-    public String findURLByShortUrl(String shortURL,Boolean custom){
-        if(custom)
-            return new URL((BasicDBObject) collectionCustom.findOne(new BasicDBObject("customURL", shortURL.replace("http://","")))).getLongURL();
-else
-        return new URL((BasicDBObject) collection.findOne(new BasicDBObject("shortURL", shortURL.replace("http://","")))).getLongURL();
+    public String findURLByShortUrl(String shortURL, Boolean custom) {
+        if (custom)
+            return new URL((BasicDBObject) collectionCustom.findOne(new BasicDBObject("customURL", shortURL.replace("http://", "")))).getLongURL();
+        else
+            return new URL((BasicDBObject) collection.findOne(new BasicDBObject("shortURL", shortURL.replace("http://", "")))).getLongURL();
     }
-    public String findShortUrlByLongURL(String longURL){
 
-        return new URL((BasicDBObject) collection.findOne(new BasicDBObject("longURL", longURL.replace("http://","")))).getShortURL();
+    public String findShortUrlByLongURL(String longURL) {
+
+        return new URL((BasicDBObject) collection.findOne(new BasicDBObject("longURL", longURL.replace("http://", "")))).getShortURL();
     }
-    public void createUrlCustom(UrlCustom urlCustom){
-        collectionCustom.insert(new BasicDBObject("customURL",urlCustom.getCustomURL()).append("longURL", urlCustom.getLongURL()));
+
+    public void createUrlCustom(UrlCustom urlCustom) {
+        collectionCustom.insert(new BasicDBObject("customURL", urlCustom.getCustomURL()).append("longURL", urlCustom.getLongURL()));
     }
-    public UrlCustom findUrlCustomByCustomurl(String url){
-        return new UrlCustom((BasicDBObject)collectionCustom.findOne(new BasicDBObject("customURL",url)));
+
+    public UrlCustom findUrlCustomByCustomurl(String url) {
+        return new UrlCustom((BasicDBObject) collectionCustom.findOne(new BasicDBObject("customURL", url)));
     }
 }

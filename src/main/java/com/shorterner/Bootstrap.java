@@ -23,7 +23,9 @@ public class Bootstrap {
 
     }
     private static DB mongo() throws Exception {
-        MongoClient mongoClient = new MongoClient("192.168.99.100:32769");
+        //ip gioele 192.168.99.101:32768
+        //ip davide 192.168.99.100:32769
+        MongoClient mongoClient = new MongoClient("192.168.99.101:32768");
         return mongoClient.getDB("shortlink");
 
     }
