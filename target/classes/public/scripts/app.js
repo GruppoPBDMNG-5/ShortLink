@@ -30,8 +30,9 @@ app.controller('CreateShort', function ($scope, $http) {
 	    })}else {
             $http.post('/api/v1/shortCustom',$scope.URL).success(function(data){
             if(data=='"fallito"'){
-            window.alert("Testo gia' in uso")
-            $scope.URL.short='';
+
+ Materialize.toast('Parola non disponibile riprovare', 4000)
+             $scope.URL.short='';
             }else{
                 $scope.URL.short=data; }
             })
