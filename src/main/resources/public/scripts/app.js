@@ -24,27 +24,27 @@ app.config(function ($routeProvider) {
 
 app.controller('CreateShort', function ($scope, $http) {
     $scope.createUrl = function () {
-        if (!$scope.URL.customURL) {
             if(checkLongUrl($scope.URL.longURL)) {
-                $http.post('/api/v1/short', $scope.URL.longURL).success(function (data) {
-                    $scope.URL.short = data;
-                })
-            } else {
-                Materialize.toast('Url not allowed, check it please.', 5000)
+                if (!$scope.URL.customURL) {
+                        $http.post('/api/v1/short', $scope.URL.longURL).success(function (data) {
+                            $scope.URL.short = data;
+                        })
+                } else {
+                    if(isABadWord($scope.URL.customURL)) {
+                        Materialize.toast('Custom url not allowed due to bad words, please check it.', 5000)
+                    } else {
+                        $http.post('/api/v1/shortCustom', $scope.URL).success(function (data) {
+                            if (data == '"fallito"') {
+                                Materialize.toast('Word not available, try again', 5000)
+                                $scope.URL.short = '';
+                            } else {
+                                $scope.URL.short = data;
+                            }
+                        })
+                }
             }
         } else {
-            if(isABadWord($scope.URL.customURL)) {
-                Materialize.toast('Custom url not allowed for bad words, please check it.', 5000)
-            } else {
-                $http.post('/api/v1/shortCustom', $scope.URL).success(function (data) {
-                    if (data == '"fallito"') {
-                        Materialize.toast('Parola non disponibile riprovare', 5000)
-                        $scope.URL.short = '';
-                    } else {
-                        $scope.URL.short = data;
-                    }
-                 })
-            }
+                Materialize.toast('Url not allowed, check it please.', 5000)
         }
     }
 });
