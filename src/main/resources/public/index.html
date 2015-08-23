@@ -1,37 +1,85 @@
 <!DOCTYPE html>
 <html ng-app="shortLink">
 <head>
-    <title>Short Link</title>
-    <link rel="stylesheet" href="/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/main.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Short URL</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
-<div class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Short Link</a>
-        </div>
+  <nav class="orange darken-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Short URL</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
-</div>
+  </nav>
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <h1 class="header center orange-text">Create custom Url</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Write down url which you want to short</h5>
+          <h6 class="header col s12 light">You can write a custome one if you want</h6>
+      </div>
+    </div>
+  </div>
 
-<div class="container" ng-view="">
+    <br><br>
+
+    <div class="container">
+        <div class="ng-view"></div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <footer class="page-footer orange darken-2">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">About Short URL</h5>
+          <p class="grey-text text-lighten-4">Short URL is a single page web application that allow user creating short url links from a long url</p>
 
 
-</div>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="white-text" href="https://github.com/GruppoPBDMNG-5/ShortLink">Github - Group 5</a></li>
+            <li><a class="white-text" href="http://pbdmng.datatoknowledge.it/">PBDMNG -Course Site</a></li>
+            <li><a class="white-text" href="http://www.uniba.it/ricerca/dipartimenti/informatica">Dipartimento di informatica</a></li>
+            <li><a class="white-text" href="http://www.uniba.it/">Uniba - University Site</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright orange darken-1">
+      <div class="container orange darken-1">
+      Made by <a class="orange-text text-lighten-3">Vincenzo Sarnataro, Davide Menga, Gioele Gentile</a>
+      </div>
+    </div>
+  </footer>
 
-<script src="/js/jquery.js"></script>
+
+  <!--  Scripts-->
+  <script src="/js/jquery.js"></script>
 <script src="/js/angular.js"></script>
 <script src="/js/angular-route.js"></script>
 <script src="/js/angular-cookies.js"></script>
 <script src="/js/angular-sanitize.js"></script>
 <script src="/js/angular-resource.js"></script>
-
+<script src="../../bin/materialize.js"></script>
+<script src="js/init.js"></script>
 <script src="/scripts/app.js"></script>
-</body>
+
+  </body>
 </html>
