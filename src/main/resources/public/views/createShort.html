@@ -13,13 +13,22 @@
         <h5 type="text" class="header col light" ng-model="URL.short">{{URL.short}}</h5>
     </div>
 </form>-->
-
+<script src="/js/materialize.js"></script>
+<script src="/js/materialize.min.js"></script>
 <form class="form-horizontal" role="form" ng-submit="createUrl()">
-        <div class="card-panel">
-            <input type="text" class="form-control" id="nome" placeholder="Write URL.." ng-model="URL.longURL">
-            <input type="text" class="form-control" id="nomeCustom" placeholder="Write custom short url.." ng-model="URL.customURL">
+        <div class="input-field col s6">
+            <input type="text" class="validate" id="nome" ng-model="URL.longURL">
+
+            <label for="nome">Write URL</label>
+             </div>
+    <div class="input-field col s6">
+
+    <input type="text" class="validate" id="nomeCustom"  ng-model="URL.customURL">
+            <label for="nomeCustom">Write custom short url</label>
+
             <button type="submit" class="btn btn-default orange darken-4 center-align">Create Short Url</button>
             <br><br>
             <h5 id="shortLabel" type="text" class="header col light center-align" ng-model="URL.short">{{URL.short}}</h5>
         </div>
+
 </form>
