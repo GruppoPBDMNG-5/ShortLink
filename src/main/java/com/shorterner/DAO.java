@@ -3,6 +3,7 @@ package com.shorterner;
 import com.google.gson.Gson;
 import com.shorterner.utility.URLShortener;
 import com.shorterner.utility.UrlCustom;
+import spark.Request;
 
 /**
  * Created by Vincenzo on 22/08/2015.
@@ -39,9 +40,9 @@ private final static int DISPONIBILE_USO=1;
         }
     }
 
-    public String espandiUrl(String body) {
+    public String espandiUrl(Request request) {
         try {
-            return urlService.findURLByShortUrl(body).getLongURL();
+            return urlService.findURLByShortUrl(request.body()).getLongURL();
         } catch (NullPointerException e) {
             return "nessuno";
         }
@@ -61,6 +62,7 @@ private final static int DISPONIBILE_USO=1;
             url.addCustomURL(urlCustom.getCustomURL());
         }catch (NullPointerException e){
             url=new URL(urlCustom.getLongURL(),URLShortener.shortenURL(urlCustom.getLongURL()));
+            urlService.createNewURL(url.getLongURL(),url.getShortURL());
             url.addCustomURL(urlCustom.getCustomURL());
         }finally {
             urlService.aggiornaUrl(url);
