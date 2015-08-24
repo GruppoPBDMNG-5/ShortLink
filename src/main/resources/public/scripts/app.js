@@ -1,5 +1,3 @@
-
-
 var app = angular.module('shortLink', [
     'ngCookies',
     'ngResource',
@@ -49,7 +47,6 @@ app.controller('CreateShort', function ($scope, $http) {
                 Materialize.toast('Url not allowed, check it please.', 5000)
         }
     }
-
 
 });
 
