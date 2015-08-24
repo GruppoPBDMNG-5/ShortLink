@@ -29,7 +29,6 @@ public class UrlResource {
 
         post(API_CONTEXT + "/short", "application/json", (request, response) -> dao.creaUrlShort(request.body()), new JsonTransformer());
 
-
         post(API_CONTEXT + "/risultato", "application/json", (request, response) -> dao.espandiUrl(request), new JsonTransformer());
 
 
