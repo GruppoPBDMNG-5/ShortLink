@@ -1,6 +1,4 @@
-/**
- * Created by shekhargulati on 10/06/14.
- */
+
 
 var app = angular.module('shortLink', [
     'ngCookies',
@@ -27,6 +25,8 @@ app.controller('CreateShort', function ($scope, $http) {
             if(checkLongUrl($scope.URL.longURL)) {
                 if (!$scope.URL.customURL) {
                         $http.post('/api/v1/short', $scope.URL.longURL).success(function (data) {
+                            data = data.replace(/\"/g, "");
+                            data = 'http://' + data;
                             $scope.URL.short = data;
                         })
                 } else {
@@ -38,6 +38,8 @@ app.controller('CreateShort', function ($scope, $http) {
                                 Materialize.toast('Word not available, try again', 5000)
                                 $scope.URL.short = '';
                             } else {
+                                data = data.replace(/\"/g, "");
+                                data = 'http://' + data;
                                 $scope.URL.short = data;
                             }
                         })
@@ -47,6 +49,8 @@ app.controller('CreateShort', function ($scope, $http) {
                 Materialize.toast('Url not allowed, check it please.', 5000)
         }
     }
+
+
 });
 
 
@@ -59,14 +63,4 @@ app.controller('longUrl', function ($scope, $http, $location) {
     })
 
 
-});
-app.controller('CreateCtrl', function ($scope, $http, $location) {
-
-    $scope.createUrl = function () {
-        $http.post('/api/v1/personas', $scope.URL).success(function (data) {
-            $location.path('/');
-        }).error(function (data, status) {
-            console.log('Error ' + data)
-        })
-    }
 });

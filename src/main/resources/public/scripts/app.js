@@ -25,6 +25,8 @@ app.controller('CreateShort', function ($scope, $http) {
             if(checkLongUrl($scope.URL.longURL)) {
                 if (!$scope.URL.customURL) {
                         $http.post('/api/v1/short', $scope.URL.longURL).success(function (data) {
+                            data = data.replace(/\"/g, "");
+                            data = 'http://' + data;
                             $scope.URL.short = data;
                         })
                 } else {
@@ -36,6 +38,8 @@ app.controller('CreateShort', function ($scope, $http) {
                                 Materialize.toast('Word not available, try again', 5000)
                                 $scope.URL.short = '';
                             } else {
+                                data = data.replace(/\"/g, "");
+                                data = 'http://' + data;
                                 $scope.URL.short = data;
                             }
                         })
@@ -45,6 +49,8 @@ app.controller('CreateShort', function ($scope, $http) {
                 Materialize.toast('Url not allowed, check it please.', 5000)
         }
     }
+
+
 });
 
 
