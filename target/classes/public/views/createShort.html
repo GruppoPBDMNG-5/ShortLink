@@ -19,16 +19,15 @@
 <form class="form-horizontal" role="form" ng-submit="createUrl()">
     <div class="card-panel">
         <div class="input-field col s6">
-            <input type="text" class="validate" id="nome" ng-model="URL.longURL">
+            <input type="text" id="nome" ng-model="URL.longURL">
             <label for="nome">Write URL</label>
              </div>
     <div class="input-field col s6">
-
-    <input type="text" class="validate" id="nomeCustom"  ng-model="URL.customURL">
-            <label for="nomeCustom">Write custom short url</label>
-            <button type="submit" class="btn btn-default orange darken-4 center-align">Create Short Url</button>
-            <br><br>
-            <h5 id="shortLabel" type="text" class="header col light center-align" ng-model="URL.short">{{URL.short}}</h5>
-        </div>
+        <input type="text" id="nomeCustom"  ng-model="URL.customURL">
+        <label for="nomeCustom">Write custom short url</label>
+        <button type="submit" class="btn btn-default orange darken-4 center-align">Create Short Url</button>
+    </div>
+        <br><br>
+        <h5  class="header col lightn"> <a target="_blank" href="{{URL.short}}" id="shortLabel" type="text" ng-model="URL.short">{{URL.short}}</a></h5>
     </div>
 </form>
