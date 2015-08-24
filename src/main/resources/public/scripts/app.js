@@ -1,6 +1,4 @@
-/**
- * Created by shekhargulati on 10/06/14.
- */
+
 
 var app = angular.module('shortLink', [
     'ngCookies',
@@ -59,14 +57,4 @@ app.controller('longUrl', function ($scope, $http, $location) {
     })
 
 
-});
-app.controller('CreateCtrl', function ($scope, $http, $location) {
-
-    $scope.createUrl = function () {
-        $http.post('/api/v1/personas', $scope.URL).success(function (data) {
-            $location.path('/');
-        }).error(function (data, status) {
-            console.log('Error ' + data)
-        })
-    }
 });

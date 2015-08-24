@@ -10,6 +10,10 @@ import com.shorterner.utility.UrlCustom;
 public class DAO {
     private UrlService urlService;
 
+private final static int INDISPONIBILE=0;
+private final static int DISPONIBILE_USO=1;
+    private final static int DISPONIBILE=2;
+
     public DAO(UrlService urlService) {
         this.urlService = urlService;
     }
@@ -17,7 +21,7 @@ public class DAO {
     public String creaUrlShort(String body) {
         String url;
         try {
-            url = urlService.findShortUrlByLongURL(body);
+            url = urlService.findUrlByLongURL(body).getShortURL();
         } catch (NullPointerException e) {
             url = null;
 
@@ -37,32 +41,41 @@ public class DAO {
 
     public String espandiUrl(String body) {
         try {
-            return urlService.findURLByShortUrl(body, false);
+            return urlService.findURLByShortUrl(body).getLongURL();
         } catch (NullPointerException e) {
-            try {
-
-                return urlService.findURLByShortUrl(body, true);
-            } catch (NullPointerException ee) {
-                return "nessuno";
-            }
+            return "nessuno";
         }
 
     }
 
     public String generaUrlCustom(String body) {
-        UrlCustom urlCustom = new Gson().fromJson(body, UrlCustom.class);
+       UrlCustom urlCustom=new Gson().fromJson(body, UrlCustom.class);
         urlCustom.setCustomURL("localhost/#/" + urlCustom.getCustomURL());
+        URL url = null;
+         if(isAvailable(urlCustom)==INDISPONIBILE)
+             return "fallito";
+        if(isAvailable(urlCustom)==DISPONIBILE_USO)
+            return urlCustom.getCustomURL();
         try {
-            String url = urlService.findUrlCustomByCustomurl(urlCustom.getCustomURL()).getLongURL();
-            if (url.equalsIgnoreCase(urlCustom.getLongURL()))
-                return urlCustom.getCustomURL();
-        } catch (NullPointerException e) {
-            urlService.createUrlCustom(urlCustom);
-            this.creaUrlShort(urlCustom.getLongURL());
+           url= urlService.findUrlByLongURL(urlCustom.getLongURL());
+            url.addCustomURL(urlCustom.getCustomURL());
+        }catch (NullPointerException e){
+            url=new URL(urlCustom.getLongURL(),URLShortener.shortenURL(urlCustom.getLongURL()));
+            url.addCustomURL(urlCustom.getCustomURL());
+        }finally {
+            urlService.aggiornaUrl(url);
             return urlCustom.getCustomURL();
         }
+    }
 
-        return "fallito";
-
+    private int isAvailable(UrlCustom customURL){
+        try{
+            URL url=urlService.findUrlByCustomUrl(customURL.getCustomURL());
+            if(url.getLongURL().equalsIgnoreCase(customURL.getLongURL()))
+            return DISPONIBILE_USO;
+            return INDISPONIBILE;
+        }catch (NullPointerException e){
+            return DISPONIBILE;
+        }
     }
 }
