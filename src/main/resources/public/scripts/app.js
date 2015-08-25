@@ -23,12 +23,11 @@ app.controller('CreateShort', function ($scope, $http) {
             if(checkLongUrl($scope.URL.longURL)) {
                 if (!$scope.URL.customURL) {
                         $http.post('/api/v1/short', $scope.URL.longURL).success(function (data) {
-                            data = data.replace(/\"/g, "");
-                            data = 'http://' + data;
-                            $scope.URL.short = data;
-                            document.getElementById("buttonStatistics").style.visibility='visible'
-                            document.getElementById("views").style.visibility='visible'
-                            document.getElementById("url-card").style.visibility='visible'
+                            var short = data['shortURL'];
+                            short = short.replace(/\"/g, "");
+                            short = 'http://' + short;
+                            $scope.URL.short = short;
+                            document.getElementById('clicks').innerHTML = data['clicks'];
                         })
                 } else {
                     if(isABadWord($scope.URL.customURL)) {
@@ -39,12 +38,10 @@ app.controller('CreateShort', function ($scope, $http) {
                                 Materialize.toast('Word not available, try again', 5000)
                                 $scope.URL.short = '';
                             } else {
-                                data = data.replace(/\"/g, "");
-                                data = 'http://' + data;
-                                $scope.URL.short = data;
-                                document.getElementById("buttonStatistics").style.visibility='visible'
-                                document.getElementById("views").style.visibility='visible'
-                                document.getElementById("url-card").style.visibility='visible'
+                                var short = $scope.URL.customURL;
+                                short = 'http://localhost/#/' + short;
+                                $scope.URL.short = short;
+                                document.getElementById('clicks').innerHTML = data['clicks'];
                             }
                         })
                 }

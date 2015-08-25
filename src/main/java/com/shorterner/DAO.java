@@ -1,5 +1,6 @@
 package com.shorterner;
 
+
 import com.google.gson.Gson;
 import com.shorterner.utility.URLShortener;
 import com.shorterner.utility.UrlCustom;
@@ -24,10 +25,10 @@ private final static int DISPONIBILE_USO=1;
         this.urlService = urlService;
     }
 
-    public String creaUrlShort(String body) {
-        String url;
+    public URL creaUrlShort(String body) {
+        URL url;
         try {
-            url = urlService.findUrlByLongURL(body).getShortURL();
+           url = urlService.findUrlByLongURL(body);
         } catch (NullPointerException e) {
             url = null;
 
@@ -41,7 +42,7 @@ private final static int DISPONIBILE_USO=1;
             urlService.createNewURL(body, URLSHORT);
 
 
-            return URLSHORT;
+            return url;
         }
     }
 
@@ -65,14 +66,16 @@ private final static int DISPONIBILE_USO=1;
 
     }
 
-    public String generaUrlCustom(String body) {
+    public URL generaUrlCustom(String body) {
        UrlCustom urlCustom=new Gson().fromJson(body, UrlCustom.class);
         urlCustom.setCustomURL("localhost/#/" + urlCustom.getCustomURL());
         URL url = null;
          if(isAvailable(urlCustom)==INDISPONIBILE)
-             return "fallito";
-        if(isAvailable(urlCustom)==DISPONIBILE_USO)
-            return urlCustom.getCustomURL();
+             return null;
+        if(isAvailable(urlCustom)==DISPONIBILE_USO) {
+            url = urlService.findUrlByLongURL(urlCustom.getLongURL());
+            return url;
+        }
         try {
            url= urlService.findUrlByLongURL(urlCustom.getLongURL());
             url.addCustomURL(urlCustom.getCustomURL());
@@ -82,7 +85,7 @@ private final static int DISPONIBILE_USO=1;
             url.addCustomURL(urlCustom.getCustomURL());
         }finally {
             urlService.aggiornaUrl(url);
-            return urlCustom.getCustomURL();
+            return url;
         }
     }
 
