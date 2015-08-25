@@ -20,3 +20,11 @@ function isABadWord(data) {
     }
 
 }
+
+function isFull(data) {
+    if (document.getElementById("shortLinkLabel").innerHTML == '') {
+        document.getElementById("buttonStatistics").style.visibility='hidden'
+    } else {
+        document.getElementById("buttonStatistics").style.visibility='visible'
+    }
+}

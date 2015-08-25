@@ -1,18 +1,3 @@
-<!--<form class="col s12" role="form" ng-submit="createUrl()">
-    <div class="card-panel">
-            <div class="input-field col">
-                <input type="text" class="validate" id="nome" ng-model="URL.longURL">
-                <label for="nome">Write URL</label>
-            </div>
-            <div class="input-field col">
-                <input type="text" class="validate" id="nomeCustom" ng-model="URL.customURL">
-                <label for="nomeCustom">Write custom URL</label>
-            </div>
-        <button type="submit" class="btn btn-default orange darken-4 col">Create Short Url</button>
-        <br><br>
-        <h5 type="text" class="header col light" ng-model="URL.short">{{URL.short}}</h5>
-    </div>
-</form>-->
 <script src="/js/materialize.js"></script>
 <script src="/js/materialize.min.js"></script>
 <script src="/scripts/check.js"></script>
@@ -21,13 +6,31 @@
         <div class="input-field col s6">
             <input type="text" id="nome" ng-model="URL.longURL">
             <label for="nome">Write URL</label>
-             </div>
-    <div class="input-field col s6">
-        <input type="text" id="nomeCustom"  ng-model="URL.customURL">
-        <label for="nomeCustom">Write custom short url</label>
-        <button type="submit" class="btn btn-default orange darken-4 center-align">Create Short Url</button>
+        </div>
+        <div class="input-field col s6">
+            <input type="text" id="nomeCustom" ng-model="URL.customURL">
+            <label for="nomeCustom">Write custom short url</label>
+            <button type="submit" class="btn btn-default orange darken-4 center-align">Create Short Url</button>
+        </div>
+        <br>
     </div>
-        <br><br>
-        <h5  class="header col lightn"> <a target="_blank" ng-href="{{URL.short}}" id="shortLabel" type="text" ng-model="URL.short">{{URL.short}}</a></h5>
+    <div id="url-card" style="visibility: hidden" class="center-align card-panel">
+        <div style="display:inline-block;font-size:1.64rem;vertical-align:middle">
+            <a id="shortLinkLabel" target="_blank" ng-href="{{URL.short}}" id="shortLabel" type="text"
+               ng-model="URL.short">
+                {{URL.short}}
+            </a>
+        </div>
+        <div style="display:inline-block;font-size:1.64rem;vertical-align:middle">
+            <a style="visibility: hidden;margin-left:50px" id="views">
+                125
+            </a>
+        </div>
+        <div style="display:inline-block;vertical-align:middle">
+            <a id="buttonStatistics" style="visibility: hidden"
+               class=" btn-floating btn-medium waves-effect waves-light orange darken-4">
+                <i class="material-icons">equalizer</i>
+            </a>
+        </div>
     </div>
 </form>

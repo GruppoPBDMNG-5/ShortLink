@@ -26,6 +26,9 @@ app.controller('CreateShort', function ($scope, $http) {
                             data = data.replace(/\"/g, "");
                             data = 'http://' + data;
                             $scope.URL.short = data;
+                            document.getElementById("buttonStatistics").style.visibility='visible'
+                            document.getElementById("views").style.visibility='visible'
+                            document.getElementById("url-card").style.visibility='visible'
                         })
                 } else {
                     if(isABadWord($scope.URL.customURL)) {
@@ -39,6 +42,9 @@ app.controller('CreateShort', function ($scope, $http) {
                                 data = data.replace(/\"/g, "");
                                 data = 'http://' + data;
                                 $scope.URL.short = data;
+                                document.getElementById("buttonStatistics").style.visibility='visible'
+                                document.getElementById("views").style.visibility='visible'
+                                document.getElementById("url-card").style.visibility='visible'
                             }
                         })
                 }
