@@ -40,8 +40,7 @@ private final static int DISPONIBILE_USO=1;
         } else {
             String URLSHORT = URLShortener.shortenURL(body);
             urlService.createNewURL(body, URLSHORT);
-
-
+            url = urlService.findUrlByLongURL(body);
             return url;
         }
     }

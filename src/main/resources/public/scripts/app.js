@@ -27,9 +27,10 @@ app.controller('CreateShort', function ($scope, $http) {
                             short = short.replace(/\"/g, "");
                             short = 'http://' + short;
                             $scope.URL.short = short;
-                            document.getElementById('clicks').innerHTML = data['clicks'];
+                            $scope.URL.clicks = data['click'];
+                            console.log(data['click']);
+                            console.log($scope.URL.clicks);
                             document.getElementById("buttonStatistics").style.visibility='visible'
-                            document.getElementById("clicks").style.visibility='visible'
                             document.getElementById("url-card").style.visibility='visible'
                         })
                 } else {
@@ -37,16 +38,15 @@ app.controller('CreateShort', function ($scope, $http) {
                         Materialize.toast('Custom url not allowed due to bad words, please check it.', 5000)
                     } else {
                         $http.post('/api/v1/shortCustom', $scope.URL).success(function (data) {
-                            if (data == '"fallito"') {
+                            if (data == null) {
                                 Materialize.toast('Word not available, try again', 5000)
                                 $scope.URL.short = '';
                             } else {
                                 var short = $scope.URL.customURL;
                                 short = 'http://localhost/#/' + short;
                                 $scope.URL.short = short;
-                                document.getElementById('clicks').innerHTML = data['clicks'];
+                                $scope.URL.clicks = data['click'];
                                 document.getElementById("buttonStatistics").style.visibility='visible'
-                                document.getElementById("clicks").style.visibility='visible'
                                 document.getElementById("url-card").style.visibility='visible'
                             }
                         })
