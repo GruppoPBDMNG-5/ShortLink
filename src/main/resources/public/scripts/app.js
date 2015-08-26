@@ -74,31 +74,20 @@ app.controller('CreateShort', function ($scope, $http, $location) {
 });
 
 app.controller('UrlStatisticsController', function ($scope) {
-    //TODO richiesta post http o utilizzo l'oggetto condiviso fra i due controller??
-    //$http.post('/api/v1/url_statistics', dataObject['longURL']).success(function(data) {
-    //
-    //})
-    var statistiche = dataObject['statistichePaesi'];
-    var prova = {
-        Germany: 5000,
-        RU: 1000,
-        Canada: 2000
-    }
 
+    var statistiche = dataObject['statistichePaesi'];
     var chart1 = {};
     chart1.type = "GeoChart";
-
-    chart1.data = [['Country','Clicks']];
+    chart1.data = [
+        ['Country', 'Clicks'],
+    ];
     var item;
-
-    for (var type in prova) {
-        item = {};
-        item.country = type;
-        item.clicks = prova[type];
+    for (var type in statistiche) {
+        item = [];
+        item = type;
+        item = [item, statistiche[type]]
         chart1.data.push(item);
     }
-
-    console.log(chart1.data);
     chart1.options = {};
     $scope.myChart = chart1;
 
