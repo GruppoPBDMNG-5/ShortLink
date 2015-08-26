@@ -41,7 +41,9 @@ private String longURL;
         this.statisticheBrowser =new HashMap<>();
 
     }
-
+public void setClick(int click){
+    this.click=click;
+}
     public int getClick() {
         return click;
     }

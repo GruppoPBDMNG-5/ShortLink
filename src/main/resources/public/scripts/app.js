@@ -9,9 +9,7 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'views/createShort.html',
         controller: 'CreateShort'
-    }).when('/create', {
-        templateUrl: 'views/create.html',
-        controller: 'CreateCtrl'
+
     }).otherwise({
         templateUrl: 'views/long.html',
         controller: 'longUrl'

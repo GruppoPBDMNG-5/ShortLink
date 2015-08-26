@@ -2,6 +2,7 @@ package com.shorterner;
 
 
 import com.google.gson.Gson;
+import com.shorterner.utility.IPGeo;
 import com.shorterner.utility.URLShortener;
 import com.shorterner.utility.UrlCustom;
 import net.sf.uadetector.ReadableUserAgent;
@@ -48,19 +49,14 @@ private final static int DISPONIBILE_USO=1;
     public String espandiUrl(Request request) {
         try {
             URL url=urlService.findURLByShortUrl(request.body());
-
             UserAgentStringParser parser = UADetectorServiceFactory.getResourceModuleParser();
             ReadableUserAgent agent = parser.parse(request.userAgent());
-            url.addClickOS(agent.getOperatingSystem().getFamilyName());
-           url.addClickBrowser(agent.getFamily().getName());
-            url.addClick();
-               url.addClickCountry("Italy");
-            urlService.aggiornaUrl(url);
+            aggiornaUrl(agent,request.ip(),url);
+            aggiornaStatistiche(agent,request.ip());
             return url.getLongURL();
         } catch (NullPointerException e) {
             return "nessuno";
         }
-
 
 
     }
@@ -87,6 +83,21 @@ private final static int DISPONIBILE_USO=1;
             return url;
         }
     }
+    private void aggiornaUrl(ReadableUserAgent agent,String ip,URL url){
+        url.addClickOS(agent.getOperatingSystem().getFamilyName());
+        url.addClickBrowser(agent.getFamily().getName());
+        url.addClick();
+        url.addClickCountry(IPGeo.getCountry(ip));
+        urlService.aggiornaUrl(url);
+    }
+    private void aggiornaStatistiche(ReadableUserAgent agent,String ip){
+        Statistiche statistiche=urlService.prendiStatistiche();
+       statistiche.addClick();
+        statistiche.addClickBrowser(agent.getFamily().getName());
+        statistiche.addClickOS(agent.getOperatingSystem().getFamilyName());
+        statistiche.addClickCountry(IPGeo.getCountry(ip));
+        urlService.aggiornaStatistiche(statistiche);
+    }
 
     private int isAvailable(UrlCustom customURL){
         try{
@@ -99,3 +110,4 @@ private final static int DISPONIBILE_USO=1;
         }
     }
 }
+
