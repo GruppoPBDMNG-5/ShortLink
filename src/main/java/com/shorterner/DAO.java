@@ -42,6 +42,7 @@ private final static int DISPONIBILE_USO=1;
             String URLSHORT = URLShortener.shortenURL(body);
             urlService.createNewURL(body, URLSHORT);
             url = urlService.findUrlByLongURL(body);
+            aggiungiSitoStatistiche();
             return url;
         }
     }
@@ -80,6 +81,7 @@ private final static int DISPONIBILE_USO=1;
             url.addCustomURL(urlCustom.getCustomURL());
         }finally {
             urlService.aggiornaUrl(url);
+            aggiungiSitoStatistiche();
             return url;
         }
     }
@@ -92,7 +94,6 @@ private final static int DISPONIBILE_USO=1;
     }
     private void aggiornaStatistiche(ReadableUserAgent agent,String ip){
         Statistiche statistiche=urlService.prendiStatistiche();
-       statistiche.addClick();
         statistiche.addClickBrowser(agent.getFamily().getName());
         statistiche.addClickOS(agent.getOperatingSystem().getFamilyName());
         statistiche.addClickCountry(IPGeo.getCountry(ip));
@@ -108,6 +109,13 @@ private final static int DISPONIBILE_USO=1;
         }catch (NullPointerException e){
             return DISPONIBILE;
         }
+    }
+
+    private void aggiungiSitoStatistiche(){
+        Statistiche statistiche=urlService.prendiStatistiche();
+        statistiche.addSite();
+        urlService.aggiornaStatistiche(statistiche);
+
     }
 }
 
