@@ -14,7 +14,7 @@ import java.util.List;
 public class Statistiche {
     private String id;
     private ArrayList<URL>topTen;
-    private int click;
+    private int site;
     private HashMap<String,Integer> statistichePaesi;
     private HashMap<String,Integer> statisticheBrowser;
     private HashMap<String,Integer> statisticheOS;
@@ -25,13 +25,13 @@ public class Statistiche {
             this.topTen.add(new URL((BasicDBObject)basicDBObject));
         this.id = ((ObjectId) statistiche.get("_id")).toString();
 
-        this.click=statistiche.getInt("click");
+        this.site =statistiche.getInt("site");
         this.statistichePaesi = (HashMap<String,Integer>) statistiche.get("paesi");
         this.statisticheBrowser = (HashMap<String,Integer>) statistiche.get("browser");
         this.statisticheOS =(HashMap<String,Integer>) statistiche.get("os");
     }
 public Statistiche(){
-    click=0;
+    site =0;
     statisticheBrowser=new HashMap<>();
     statisticheOS=new HashMap<>();
     statistichePaesi=new HashMap<>();
@@ -40,11 +40,11 @@ public Statistiche(){
         return topTen;
     }
 
-    public int getClick() {
-        return click;
+    public int getSite() {
+        return site;
     }
-    public void addClick(){
-        this.click++;
+    public void addSite(){
+        this.site++;
     }
     public void addClickCountry(String country){
         this.statistichePaesi.put(country,this.statistichePaesi.getOrDefault(country,0)+1);
@@ -75,7 +75,7 @@ public Statistiche(){
 
     public BasicDBObject getBasicDBObjectClass(){
         BasicDBObject document=new BasicDBObject()
-                .append("click", this.click)
+                .append("site", this.site)
                 .append("paesi",this.statistichePaesi)
                 .append("browser",this.statisticheBrowser)
                 .append("os",this.statisticheOS);
