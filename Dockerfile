@@ -50,7 +50,6 @@ RUN ["mvn", "verify"]
 
 # Adding source, compile and package into a fat jar
 ADD src /code/src
-ADD geoip_db /code/geoip_db
 ADD src/main/resources/public /code/public
 
 #create the start server file and make it executable
