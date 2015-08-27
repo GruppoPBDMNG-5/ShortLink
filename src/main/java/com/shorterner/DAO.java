@@ -64,7 +64,7 @@ private final static int DISPONIBILE_USO=1;
 
     public URL generaUrlCustom(String body) {
        UrlCustom urlCustom=new Gson().fromJson(body, UrlCustom.class);
-        urlCustom.setCustomURL("localhost/#/" + urlCustom.getCustomURL());
+        urlCustom.setCustomURL("localhost:8080/#/" + urlCustom.getCustomURL());
         URL url = null;
          if(isAvailable(urlCustom)==INDISPONIBILE)
              return null;

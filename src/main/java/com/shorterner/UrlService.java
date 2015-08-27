@@ -34,11 +34,7 @@ public void popola(){
 }
     public void createNewURL(String longURL, String shortURL) {
         URL url = new URL(longURL, shortURL);
-//        for(int i=0;i<100;i++){
-//            URL url1=new URL(longURL+i,shortURL+i);
-//            url1.setClick(i);
-//            collection.insert(url1.getBasicDBObjectClass());
-//        }
+
 
         collection.insert(url.getBasicDBObjectClass());
         findTopTen();

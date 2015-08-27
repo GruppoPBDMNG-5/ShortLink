@@ -37,7 +37,7 @@ public class URLShortener {
             }
             myChars[i] = (char) j;
         }
-        domain = "localhost/#";
+        domain = "localhost:8080/#";
     }
 
     // Constructor which enables you to define tiny URL key length and base URL
@@ -63,8 +63,7 @@ public class URLShortener {
     // expandURL
     // public method which returns back the original URL given the shortened url
     public static String expandURL(String shortURL) {
-        if(shortURL.equals("http://localhost/#/OBNElI"))
-            return "www.facebook.com";
+
         String longURL = "";
         String key = shortURL.substring(domain.length() + 1);
         longURL = keyMap.get(key);
