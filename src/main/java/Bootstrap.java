@@ -9,7 +9,7 @@ import static spark.Spark.*;
  * Created by Vincenzo on 16/07/2015.
  */
 public class Bootstrap {
-    private static final String IP="localhost";
+    private static final String IP="0.0.0.0";
     private static final int PORT=8080;
     public static void main(String[] args){
         setIpAddress(IP);
