@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="763c5455-d918-4819-8059-3de808d4d969" name="Default" comment="">
+      <change type="DELETED" beforePath="G:\backup 2\università\Basi\progetto2\ShortLink\target\classes\com\shorterner\Bootstrap.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/shorterner/utility/URLShortener.class" afterPath="$PROJECT_DIR$/target/classes/com/shorterner/utility/URLShortener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/shorterner/UrlService.class" afterPath="$PROJECT_DIR$/target/classes/com/shorterner/UrlService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/shorterner/utility/IPGeo.java" afterPath="$PROJECT_DIR$/src/main/java/com/shorterner/utility/IPGeo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/public/scripts/app.js" afterPath="$PROJECT_DIR$/target/classes/public/scripts/app.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="G:\backup 2\università\Basi\progetto2\ShortLink\src\main\geodb\GeoLite2-City.mmdb" afterPath="$PROJECT_DIR$/geodb/GeoLite2-City.mmdb" />
     </list>
     <ignored path="URLSHORT.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -78,9 +81,11 @@
       <file leaf-file-name="IPGeo.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shorterner/utility/IPGeo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.50513697">
-              <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-              <folding />
+            <state vertical-scroll-proportion="0.38869864">
+              <caret line="20" column="84" selection-start-line="20" selection-start-column="84" selection-end-line="20" selection-end-column="84" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -189,8 +194,8 @@
         <option value="$PROJECT_DIR$/src/main/resources/public/scripts/app.js" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shorterner/utility/IPGeo.java" />
         <option value="$PROJECT_DIR$/src/main/java/Bootstrap.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shorterner/utility/IPGeo.java" />
       </list>
     </option>
   </component>
@@ -808,7 +813,13 @@
       <option name="project" value="LOCAL" />
       <updated>1440704695208</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Test docker">
+      <created>1440706771654</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1440706771654</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1280,9 +1291,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shorterner/utility/IPGeo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50513697">
-          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
-          <folding />
+        <state vertical-scroll-proportion="0.38869864">
+          <caret line="20" column="84" selection-start-line="20" selection-start-column="84" selection-end-line="20" selection-end-column="84" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -18,7 +18,8 @@ public class IPGeo {
         try {
              if(ip.equals("127.0.0.1"))
                  return "Italy";
-            File database = new File("geodb\\GeoLite2-City.mmdb");
+            String path=System.getProperty("user.dir") +"/geodb/GeoLite2-City.mmdb";
+            File database = new File(path);
 
             DatabaseReader reader = new DatabaseReader.Builder(database).build();
 

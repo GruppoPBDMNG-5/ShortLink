@@ -50,7 +50,7 @@ app.controller('CreateShort', function ($scope, $http, $location) {
                                 dataObject = data;
                             } else {
                                 var short = $scope.URL.customURL;
-                                short = 'http://localhost/#/' + short;
+                                short = 'http://localhost:8080/#/' + short;
                                 $scope.URL.short = short;
                                 $scope.URL.clicks = data['click'];
                                 document.getElementById("buttonStatistics").style.visibility='visible';
