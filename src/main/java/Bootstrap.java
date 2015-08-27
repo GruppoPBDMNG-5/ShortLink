@@ -1,7 +1,7 @@
-package com.shorterner;
-
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
+import com.shorterner.UrlResource;
+import com.shorterner.UrlService;
 
 import static spark.Spark.*;
 
