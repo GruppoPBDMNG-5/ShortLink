@@ -54,7 +54,7 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
-                    <finalName>ShrinkYoUrl</finalName>
+                    <finalName>ShortLink</finalName>
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
@@ -85,7 +85,7 @@
                         <configuration>
                             <finalName>ShortLink</finalName>
                             <descriptorRefs>
-                                <descriptorRef>jar-final</descriptorRef>
+                                <descriptorRef>jar-with-dependencies</descriptorRef>
                             </descriptorRefs>
                             <archive>
                                 <manifest>
