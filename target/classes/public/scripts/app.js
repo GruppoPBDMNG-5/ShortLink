@@ -79,7 +79,7 @@ app.controller('UrlStatisticsController', function ($scope) {
     var chart1 = {};
     chart1.type = "GeoChart";
     chart1.data = [
-        ['Country', 'Clicks'],
+        ['Country', 'Clicks']
     ];
     var item;
     for (var type in statistiche) {
