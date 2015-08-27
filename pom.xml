@@ -89,7 +89,7 @@
                             </descriptorRefs>
                             <archive>
                                 <manifest>
-                                    <mainClass>ServerConnection</mainClass>
+                                    <mainClass>Bootstrap</mainClass>
                                 </manifest>
                             </archive>
                         </configuration>
