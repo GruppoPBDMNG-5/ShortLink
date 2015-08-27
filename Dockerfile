@@ -55,7 +55,7 @@ ADD src/main/resources/public /code/public
 #create the start server file and make it executable
 RUN echo '#!/bin/bash' >> /start
 RUN echo 'mvn package' >> /start
-RUN echo 'java -jar target/ShortLink-jar-with-dependencies.jar' >> /start
+RUN echo 'java -jar target/ShortLink-jar-final.jar' >> /start
 RUN chmod 755 /start
 
 
