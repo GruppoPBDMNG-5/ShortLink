@@ -16,7 +16,7 @@ public class IPGeo {
 
     public static String getCountry(String ip){
         try {
-             if(ip.equals("127.0.0.1"))
+             if(ip.equals("0:0:0:0:0:0:0:1"))
                  return "Italy";
             String path=System.getProperty("user.dir") +"/geodb/GeoLite2-City.mmdb";
             File database = new File(path);

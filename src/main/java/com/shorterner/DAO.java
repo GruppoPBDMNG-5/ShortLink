@@ -85,6 +85,11 @@ private final static int DISPONIBILE_USO=1;
             return url;
         }
     }
+
+    public URL getUrlStatistics(String body) {
+        return urlService.findUrlByLongURL(body);
+    }
+
     private void aggiornaUrl(ReadableUserAgent agent,String ip,URL url){
         url.addClickOS(agent.getOperatingSystem().getFamilyName());
         url.addClickBrowser(agent.getFamily().getName());

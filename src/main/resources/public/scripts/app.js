@@ -7,10 +7,8 @@ var app = angular.module('shortLink', [
 ]);
 
 app.service('urlData', function() {
-    var _dataObject = {};
-    return {
-        dataObject: _dataObject
-    };
+    var _url;
+    return urlInfo =  _url;
 });
 
 app.config(function ($routeProvider) {
@@ -26,7 +24,7 @@ app.config(function ($routeProvider) {
     })
 });
 
-app.controller('CreateShort', function ($scope, $http, $location) {
+app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) {
     $scope.createUrl = function () {
             if(checkLongUrl($scope.URL.longURL)) {
                 if (!$scope.URL.customURL) {
@@ -38,7 +36,7 @@ app.controller('CreateShort', function ($scope, $http, $location) {
                             $scope.URL.clicks = data['click'];
                             document.getElementById("buttonStatistics").style.visibility='visible';
                             document.getElementById("url-card").style.visibility='visible';
-                            dataObject = data;
+                            $cookieStore.put("longUrl", data['longURL']);
                         })
                 } else {
                     if(isABadWord($scope.URL.customURL)) {
@@ -47,7 +45,6 @@ app.controller('CreateShort', function ($scope, $http, $location) {
                         $http.post('/api/v1/shortCustom', $scope.URL).success(function (data) {
                             if (data == null) {
                                 Materialize.toast('Word not available, try again', 5000);
-                                dataObject = data;
                             } else {
                                 var short = $scope.URL.customURL;
                                 short = 'http://localhost:8080/#/' + short;
@@ -55,7 +52,7 @@ app.controller('CreateShort', function ($scope, $http, $location) {
                                 $scope.URL.clicks = data['click'];
                                 document.getElementById("buttonStatistics").style.visibility='visible';
                                 document.getElementById("url-card").style.visibility='visible';
-                                dataObject = data;
+                                $cookies.put('longUrl', data['longURL']);
                             }
                         })
                 }
@@ -71,63 +68,68 @@ app.controller('CreateShort', function ($scope, $http, $location) {
 
 });
 
-app.controller('UrlStatisticsController', function ($scope) {
+app.controller('UrlStatisticsController', function ($scope, $http, $cookieStore) {
 
-    var countryStatistics = dataObject['statistichePaesi'];
-    var chart1 = {};
-    chart1.type = "GeoChart";
-    chart1.data = [
-        ['Country', 'Clicks']
-    ];
-    var item;
-    for (var type in countryStatistics) {
-        item = [];
-        item = type;
-        item = [item, countryStatistics[type]];
-        chart1.data.push(item);
-    }
-    chart1.options = {};
-    $scope.geoChart = chart1;
-    $scope.total_clicks = dataObject['click'];
+    $http.post('/api/v1/url_statistics', $cookieStore.get("longUrl")).success(function(data) {
 
-    var colors = ['red', 'blue', 'grey' , 'orange', 'green', 'purple', 'yellow', 'brown'];
-    var browserStatistics = dataObject['statisticheBrowser'];
-    var chart1 = {};
-    chart1.type = "BarChart";
-    chart1.data = [
-        ['Browser','Clicks',{ role: 'style'}]
-    ];
-    var item;
-    var index = 0;
-    for(var type in browserStatistics) {
-        item = [];
-        item = type;
-        if(index == 7)
-            index = 0;
-        item = [item, browserStatistics[type], colors[index++]];
-        chart1.data.push(item);
-    }
-    chart1.options = {};
-    $scope.browserChart = chart1;
+        var countryStatistics = data['statistichePaesi'];
+        var chart1 = {};
+        chart1.type = "GeoChart";
+        chart1.data = [
+            ['Country', 'Clicks']
+        ];
+        var item;
+        for (var type in countryStatistics) {
+            item = [];
+            item = type;
+            item = [item, countryStatistics[type]];
+            chart1.data.push(item);
+        }
+        chart1.options = {};
+        $scope.geoChart = chart1;
+        $scope.total_clicks = data['click'];
 
-    var platformStatistics = dataObject['statisticheOS'];
-    var chart1 = {};
-    chart1.type = "BarChart";
-    chart1.data = [
-        ['Platform','Clicks',{ role: 'style'}]
-    ];
-    var item;
-    var index = 0;
-    for(var type in platformStatistics) {
-        item = [];
-        item = type;
-        if(index == 7)
-            index = 0;
-        item = [item, platformStatistics[type], colors[index++]];
-        chart1.data.push(item);
-    }
-    chart1.options = {};
-    $scope.platformChart = chart1;
+        var colors = ['red', 'blue', 'grey' , 'orange', 'green', 'purple', 'yellow', 'brown'];
+        var browserStatistics = data['statisticheBrowser'];
+        var chart1 = {};
+        chart1.type = "BarChart";
+        chart1.data = [
+            ['Browser','Clicks',{ role: 'style'}]
+        ];
+        var item;
+        var index = 0;
+        for(var type in browserStatistics) {
+            item = [];
+            item = type;
+            if(index == 7)
+                index = 0;
+            item = [item, browserStatistics[type], colors[index++]];
+            chart1.data.push(item);
+        }
+        chart1.options = {};
+        $scope.browserChart = chart1;
+
+        var platformStatistics = data['statisticheOS'];
+        var chart1 = {};
+        chart1.type = "BarChart";
+        chart1.data = [
+            ['Platform','Clicks',{ role: 'style'}]
+        ];
+        var item;
+        var index = 0;
+        for(var type in platformStatistics) {
+            item = [];
+            item = type;
+            if(index == 7)
+                index = 0;
+            item = [item, platformStatistics[type], colors[index++]];
+            chart1.data.push(item);
+        }
+        chart1.options = {};
+        $scope.platformChart = chart1;
+
+    });
+
 
 });
 
