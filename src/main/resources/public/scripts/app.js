@@ -57,10 +57,6 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
         }
     }
 
-    $scope.go = function(path) {
-        $location.path(path);
-    }
-
 });
 
 app.controller('UrlStatisticsController', function ($scope, $http, $cookieStore) {
