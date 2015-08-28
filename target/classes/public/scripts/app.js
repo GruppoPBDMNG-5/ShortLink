@@ -57,15 +57,14 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
         }
     }
 
-    $scope.go = function(path) {
-        $location.path(path);
-    }
-
 });
 
 app.controller('UrlStatisticsController', function ($scope, $http, $cookieStore) {
 
     $http.post('/api/v1/url_statistics', $cookieStore.get("longUrl")).success(function(data) {
+        $scope.total_clicks = data['click'];
+        $scope.shortURL = data['shortURL'];
+        $scope.longURL = data['longURL'];
         $scope.geoChart = geoChart(data['statistichePaesi']);
         if(data['click'] == 0) {
             $scope.browserChart = barChart(null,'Browser', '');
