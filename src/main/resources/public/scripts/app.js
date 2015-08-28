@@ -25,7 +25,6 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
                 if (!$scope.URL.customURL) {
                         $http.post('/api/v1/short', $scope.URL.longURL).success(function (data) {
                             var short = data['shortURL'];
-                            console.log("dio");
                             short = short.replace(/\"/g, "");
                             short = 'http://' + short;
                             $scope.URL.short = short;
@@ -67,11 +66,14 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
 app.controller('UrlStatisticsController', function ($scope, $http, $cookieStore) {
 
     $http.post('/api/v1/url_statistics', $cookieStore.get("longUrl")).success(function(data) {
-
         $scope.geoChart = geoChart(data['statistichePaesi']);
-        $scope.browserChart = barChart(data['statisticheBrowser'],'Browser', 'Clicks');
-        $scope.platformChart = barChart(data['statisticheOS'],'Platform','Clicks');
-
+        if(data['click'] == 0) {
+            $scope.browserChart = barChart(null,'Browser', '');
+            $scope.platformChart = barChart(null,'Platform','');
+        } else {
+            $scope.browserChart = barChart(data['statisticheBrowser'],'Browser', 'Clicks');
+            $scope.platformChart = barChart(data['statisticheOS'],'Platform','Clicks');
+        }
     });
 
 

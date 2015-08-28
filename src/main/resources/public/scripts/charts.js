@@ -26,15 +26,19 @@ function barChart(data, key, value) {
     chart1.data = [
         [key,value,{ role: 'style'}]
     ];
-    var item;
-    var index = 0;
-    for(var type in data) {
-        item = [];
-        item = type;
-        if(index == 7)
-            index = 0;
-        item = [item, data[type], colors[index++]];
-        chart1.data.push(item);
+    if(data != null){
+        var item;
+        var index = 0;
+        for(var type in data) {
+            item = [];
+            item = type;
+            if(index == 7)
+                index = 0;
+            item = [item, data[type], colors[index++]];
+            chart1.data.push(item);
+        }
+    } else {
+        chart1.data.push(['',0,0]);
     }
     chart1.options = {};
     return chart1;
