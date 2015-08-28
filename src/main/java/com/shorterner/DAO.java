@@ -18,9 +18,9 @@ import java.io.IOException;
 public class DAO {
     private UrlService urlService;
 
-private final static int INDISPONIBILE=0;
-private final static int DISPONIBILE_USO=1;
-    private final static int DISPONIBILE=2;
+    private final static int INDISPONIBILE = 0;
+    private final static int DISPONIBILE_USO = 1;
+    private final static int DISPONIBILE = 2;
 
     public DAO(UrlService urlService) {
         this.urlService = urlService;
@@ -29,7 +29,7 @@ private final static int DISPONIBILE_USO=1;
     public URL creaUrlShort(String body) {
         URL url;
         try {
-           url = urlService.findUrlByLongURL(body);
+            url = urlService.findUrlByLongURL(body);
         } catch (NullPointerException e) {
             url = null;
 
@@ -49,11 +49,11 @@ private final static int DISPONIBILE_USO=1;
 
     public String espandiUrl(Request request) {
         try {
-            URL url=urlService.findURLByShortUrl(request.body());
+            URL url = urlService.findURLByShortUrl(request.body());
             UserAgentStringParser parser = UADetectorServiceFactory.getResourceModuleParser();
             ReadableUserAgent agent = parser.parse(request.userAgent());
-            aggiornaUrl(agent,request.ip(),url);
-            aggiornaStatistiche(agent,request.ip());
+            aggiornaUrl(agent, request.ip(), url);
+            aggiornaStatistiche(agent, request.ip());
             return url.getLongURL();
         } catch (NullPointerException e) {
             return "nessuno";
@@ -63,23 +63,23 @@ private final static int DISPONIBILE_USO=1;
     }
 
     public URL generaUrlCustom(String body) {
-       UrlCustom urlCustom=new Gson().fromJson(body, UrlCustom.class);
+        UrlCustom urlCustom = new Gson().fromJson(body, UrlCustom.class);
         urlCustom.setCustomURL("localhost:8080/#/" + urlCustom.getCustomURL());
         URL url = null;
-         if(isAvailable(urlCustom)==INDISPONIBILE)
-             return null;
-        if(isAvailable(urlCustom)==DISPONIBILE_USO) {
+        if (isAvailable(urlCustom) == INDISPONIBILE)
+            return null;
+        if (isAvailable(urlCustom) == DISPONIBILE_USO) {
             url = urlService.findUrlByLongURL(urlCustom.getLongURL());
             return url;
         }
         try {
-           url= urlService.findUrlByLongURL(urlCustom.getLongURL());
+            url = urlService.findUrlByLongURL(urlCustom.getLongURL());
             url.addCustomURL(urlCustom.getCustomURL());
-        }catch (NullPointerException e){
-            url=new URL(urlCustom.getLongURL(),URLShortener.shortenURL(urlCustom.getLongURL()));
-            urlService.createNewURL(url.getLongURL(),url.getShortURL());
+        } catch (NullPointerException e) {
+            url = new URL(urlCustom.getLongURL(), URLShortener.shortenURL(urlCustom.getLongURL()));
+            urlService.createNewURL(url.getLongURL(), url.getShortURL());
             url.addCustomURL(urlCustom.getCustomURL());
-        }finally {
+        } finally {
             urlService.aggiornaUrl(url);
             aggiungiSitoStatistiche();
             return url;
@@ -90,34 +90,35 @@ private final static int DISPONIBILE_USO=1;
         return urlService.findUrlByLongURL(body);
     }
 
-    private void aggiornaUrl(ReadableUserAgent agent,String ip,URL url){
+    private void aggiornaUrl(ReadableUserAgent agent, String ip, URL url) {
         url.addClickOS(agent.getOperatingSystem().getFamilyName());
         url.addClickBrowser(agent.getFamily().getName());
         url.addClick();
         url.addClickCountry(IPGeo.getCountry(ip));
         urlService.aggiornaUrl(url);
     }
-    private void aggiornaStatistiche(ReadableUserAgent agent,String ip){
-        Statistiche statistiche=urlService.prendiStatistiche();
+
+    private void aggiornaStatistiche(ReadableUserAgent agent, String ip) {
+        Statistiche statistiche = urlService.prendiStatistiche();
         statistiche.addClickBrowser(agent.getFamily().getName());
         statistiche.addClickOS(agent.getOperatingSystem().getFamilyName());
         statistiche.addClickCountry(IPGeo.getCountry(ip));
         urlService.aggiornaStatistiche(statistiche);
     }
 
-    private int isAvailable(UrlCustom customURL){
-        try{
-            URL url=urlService.findUrlByCustomUrl(customURL.getCustomURL());
-            if(url.getLongURL().equalsIgnoreCase(customURL.getLongURL()))
-            return DISPONIBILE_USO;
+    private int isAvailable(UrlCustom customURL) {
+        try {
+            URL url = urlService.findUrlByCustomUrl(customURL.getCustomURL());
+            if (url.getLongURL().equalsIgnoreCase(customURL.getLongURL()))
+                return DISPONIBILE_USO;
             return INDISPONIBILE;
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             return DISPONIBILE;
         }
     }
 
-    private void aggiungiSitoStatistiche(){
-        Statistiche statistiche=urlService.prendiStatistiche();
+    private void aggiungiSitoStatistiche() {
+        Statistiche statistiche = urlService.prendiStatistiche();
         statistiche.addSite();
         urlService.aggiornaStatistiche(statistiche);
 

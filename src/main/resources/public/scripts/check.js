@@ -1,6 +1,6 @@
 function checkLongUrl(data) {
 
-    var re = /^(www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+    var re = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/|www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
     if(data.toString().match(re)){
         return true
     } else {
@@ -19,12 +19,4 @@ function isABadWord(data) {
         return false
     }
 
-}
-
-function isFull(data) {
-    if (document.getElementById("shortLinkLabel").innerHTML == '') {
-        document.getElementById("buttonStatistics").style.visibility='hidden'
-    } else {
-        document.getElementById("buttonStatistics").style.visibility='visible'
-    }
 }
