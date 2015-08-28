@@ -10,7 +10,7 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'views/createShort.html',
         controller: 'CreateShort'
-    }).when('/urlStatistics/', {
+    }).when('/urlStatistics/:param1', {
         templateUrl: 'views/urlStatistics.html',
         controller: 'UrlStatisticsController'
     }).when('/topSites', {
@@ -64,11 +64,11 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
 
 });
 
-app.controller('UrlStatisticsController', function ($scope, $http, $cookieStore, $location) {
-
+app.controller('UrlStatisticsController', function ($scope, $http, $routeParams, $location) {
+ var param1 = $routeParams.param1;
     var path = $location.path();
-    console.log(path);
-    $http.get('/api/v1/url_statistics/' + $cookieStore.get("longUrl")).success(function(data) {
+    console.log(param1);
+    $http.get('/api/v1/url_statistics/',{params:{"param1": param1}}).success(function(data) {
         $scope.total_clicks = data['click'];
         $scope.shortURL = data['shortURL'];
         $scope.longURL = data['longURL'];
