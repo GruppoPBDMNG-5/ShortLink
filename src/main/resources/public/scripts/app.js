@@ -67,11 +67,12 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
 app.controller('UrlStatisticsController', function ($scope, $http, $routeParams, $location) {
  var param1 = $routeParams.param1;
     var path = $location.path();
-    console.log(param1);
+
     $http.get('/api/v1/url_statistics/',{params:{"param1": param1}}).success(function(data) {
         $scope.total_clicks = data['click'];
         $scope.shortURL = data['shortURL'];
         $scope.longURL = data['longURL'];
+        console.log($scope.longURL);
         $scope.geoChart = geoChart(data['statistichePaesi']);
         if(data['click'] == 0) {
             $scope.browserChart = barChart(null,'Browser', '');
