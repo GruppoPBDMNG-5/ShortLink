@@ -35,12 +35,12 @@ public class UrlService {
     }
 
     public URL findURLByShortUrl(String shortURL) {
-        return new URL((BasicDBObject) collection.findOne(new BasicDBObject("customURL", shortURL.replace("http://", ""))));
+        shortURL = shortURL.replace("http://", "");
+        shortURL = shortURL.replace("https://", "");
+        return new URL((BasicDBObject) collection.findOne(new BasicDBObject("customURL", shortURL)));
     }
 
     public URL findUrlByLongURL(String longURL) {
-        longURL = longURL.replace("http://", "");
-        longURL = longURL.replace("https://", "");
         return new URL((BasicDBObject) collection.findOne(new BasicDBObject("_id", longURL)));
     }
 

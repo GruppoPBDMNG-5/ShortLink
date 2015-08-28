@@ -6,11 +6,6 @@ var app = angular.module('shortLink', [
     'googlechart'
 ]);
 
-app.service('urlData', function() {
-    var _url;
-    return urlInfo =  _url;
-});
-
 app.config(function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'views/createShort.html',
@@ -87,9 +82,11 @@ app.controller('longUrl', function ($scope, $http, $location) {
 
     $http.post('/api/v1/risultato', $location.absUrl()).success(function (data) {
         data = data.replace(/\"/g, "");
-        console.log(data);
-        location.href = 'http://' + data;
+        if(data.toString().indexOf("http://") > -1 || data.toString().indexOf("https://") > -1) {
+            location.href =  data;
+        } else {
+            location.href = 'http://' + data;
+        }
     })
-
 
 });
