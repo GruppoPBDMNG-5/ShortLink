@@ -30,8 +30,9 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
                 if (!$scope.URL.customURL) {
                         $http.post('/api/v1/short', $scope.URL.longURL).success(function (data) {
                             var short = data['shortURL'];
+                            console.log("dio");
                             short = short.replace(/\"/g, "");
-                            short = 'http://' + short;
+                            //short = 'http://' + short;
                             $scope.URL.short = short;
                             $scope.URL.clicks = data['click'];
                             document.getElementById("buttonStatistics").style.visibility='visible';
