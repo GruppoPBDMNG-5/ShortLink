@@ -10,9 +10,12 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'views/createShort.html',
         controller: 'CreateShort'
-    }).when('/urlStatistics', {
+    }).when('/urlStatistics/', {
         templateUrl: 'views/urlStatistics.html',
         controller: 'UrlStatisticsController'
+    }).when('/topSites', {
+        templateUrl: 'views/topSites.html',
+        controller: 'TopSitesController'
     }).otherwise({
         templateUrl: 'views/long.html',
         controller: 'longUrl'
@@ -31,7 +34,8 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
                             $scope.URL.clicks = data['click'];
                             document.getElementById("buttonStatistics").style.visibility='visible';
                             document.getElementById("url-card").style.visibility='visible';
-                            $cookieStore.put("longUrl", data['longURL']);
+                            $scope.requestStatistics = '/#/urlStatistics/' + $scope.URL.longURL;
+                            //$cookieStore.put("longUrl", data['longURL']);
                         })
                 } else {
                     if(isABadWord($scope.URL.customURL)) {
@@ -47,7 +51,8 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
                                 $scope.URL.clicks = data['click'];
                                 document.getElementById("buttonStatistics").style.visibility='visible';
                                 document.getElementById("url-card").style.visibility='visible';
-                                $cookies.put('longUrl', data['longURL']);
+                                //$cookies.put('longUrl', data['longURL']);
+                                $scope.requestStatistics = '/#/urlStatistics/' + $scope.URL.longURL;
                             }
                         })
                 }
@@ -59,9 +64,11 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
 
 });
 
-app.controller('UrlStatisticsController', function ($scope, $http, $cookieStore) {
+app.controller('UrlStatisticsController', function ($scope, $http, $cookieStore, $location) {
 
-    $http.post('/api/v1/url_statistics', $cookieStore.get("longUrl")).success(function(data) {
+    var path = $location.path();
+    console.log(path);
+    $http.get('/api/v1/url_statistics/' + $cookieStore.get("longUrl")).success(function(data) {
         $scope.total_clicks = data['click'];
         $scope.shortURL = data['shortURL'];
         $scope.longURL = data['longURL'];
@@ -75,6 +82,14 @@ app.controller('UrlStatisticsController', function ($scope, $http, $cookieStore)
         }
     });
 
+
+});
+
+app.controller('TopSitesController', function($scope, $http) {
+
+    $http.post('/api/v1/top_sites','').success(function(data) {
+        console.log(data);
+    });
 
 });
 

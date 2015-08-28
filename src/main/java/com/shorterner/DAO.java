@@ -90,6 +90,10 @@ public class DAO {
         return urlService.findUrlByLongURL(body);
     }
 
+    public Statistiche getStatistics() {
+        return urlService.prendiStatistiche();
+    }
+
     private void aggiornaUrl(ReadableUserAgent agent, String ip, URL url) {
         url.addClickOS(agent.getOperatingSystem().getFamilyName());
         url.addClickBrowser(agent.getFamily().getName());
