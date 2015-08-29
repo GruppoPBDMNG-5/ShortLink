@@ -10,12 +10,14 @@
         </p>
     </div>
     <div class="left-align blue-text text-lighten-1" style="display:inline-block;vertical-align:middle">
-        <a target="_blank" ng-href="http://{{longURL}}" style="margin:0;padding-left:25px;font-size:1.50rem;" ng-model ="longURL">
+        <a target="_blank" ng-href="http://{{longURL}}" style="margin:0;padding-left:25px;font-size:1.50rem;"
+           ng-model="longURL">
             {{longURL}}
         </a>
     </div>
     <div class="right" style="display:inline-block;vertical-align:middle">
-        <p class="orange-text" style="display:inline-block;font-size:0.80rem;">Total clicks:  </p>
+        <p class="orange-text" style="display:inline-block;font-size:0.80rem;">Total clicks: </p>
+
         <p class="orange-text" ng-model="total_clicks" style="display:inline-block;font-size:1.50rem;margin:0;">
             {{total_clicks}}
         </p>
@@ -30,6 +32,7 @@
         <hr>
     </div>
     <br>
+
     <div class="center-align">
         <div google-chart chart="geoChart" style="height: 400px;"></div>
     </div>
@@ -43,6 +46,7 @@
         <hr>
     </div>
     <br>
+
     <div class="center-align">
         <div google-chart chart="browserChart" style="height: 300px;"></div>
     </div>
@@ -56,6 +60,7 @@
         <hr>
     </div>
     <br>
+
     <div class="center-align">
         <div google-chart chart="platformChart" style="height: 300px;"></div>
     </div>

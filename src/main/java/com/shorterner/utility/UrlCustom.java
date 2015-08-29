@@ -10,8 +10,8 @@ public class UrlCustom {
     private String customURL;
 
     public UrlCustom(BasicDBObject customURL) {
-        this.customURL=customURL.getString("customURL");
-        this.longURL =  customURL.getString("longURL");
+        this.customURL = customURL.getString("customURL");
+        this.longURL = customURL.getString("longURL");
 
     }
 

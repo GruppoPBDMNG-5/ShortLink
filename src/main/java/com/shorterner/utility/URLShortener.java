@@ -20,7 +20,7 @@ public class URLShortener {
     private static int keyLength; // the key length in URL defaults to 8
 
     // Default Constructor
-   static {
+    static {
         keyMap = new HashMap<String, String>();
         valueMap = new HashMap<String, String>();
         myRand = new Random();
@@ -127,11 +127,11 @@ public class URLShortener {
     public static void main(String args[]) {
 
 
-        String urls[] = { "www.google.com/", "www.google.com",
+        String urls[] = {"www.google.com/", "www.google.com",
                 "http://www.yahoo.com", "www.yahoo.com/", "www.amazon.com",
                 "www.amazon.com/page1.php", "www.amazon.com/page2.php",
                 "www.flipkart.in", "www.rediff.com", "www.techmeme.com",
-                "www.techcrunch.com", "www.lifehacker.com", "www.icicibank.com" };
+                "www.techcrunch.com", "www.lifehacker.com", "www.icicibank.com"};
 
         for (int i = 0; i < urls.length; i++) {
             System.out.println("URL:" + urls[i] + "\tTiny: "

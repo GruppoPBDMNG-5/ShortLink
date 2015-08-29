@@ -1,4 +1,4 @@
-package com.shorterner;
+package com.shorterner.entity;
 
 import com.mongodb.BasicDBObject;
 

@@ -14,18 +14,18 @@ import java.net.UnknownHostException;
  */
 public class IPGeo {
 
-    public static String getCountry(String ip){
+    public static String getCountry(String ip) {
         try {
-             if(ip.equals("0:0:0:0:0:0:0:1") || ip.equals("127.0.0.1"))
-                 return "Italy";
-            String path=System.getProperty("user.dir") +"/geodb/GeoLite2-City.mmdb";
+            if (ip.equals("0:0:0:0:0:0:0:1") || ip.equals("127.0.0.1"))
+                return "Italy";
+            String path = System.getProperty("user.dir") + "/geodb/GeoLite2-City.mmdb";
             File database = new File(path);
 
             DatabaseReader reader = new DatabaseReader.Builder(database).build();
 
             InetAddress ipAddress = InetAddress.getByName(ip);
             CityResponse response = reader.city(ipAddress);
-           return response.getCountry().getName();
+            return response.getCountry().getName();
 
 
         } catch (UnknownHostException e) {
@@ -35,7 +35,7 @@ public class IPGeo {
         } catch (IOException e) {
             e.printStackTrace();
         }
-return "";
+        return "";
     }
 
 }

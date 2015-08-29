@@ -9,9 +9,10 @@ import static spark.Spark.*;
  * Created by Vincenzo on 16/07/2015.
  */
 public class Bootstrap {
-    private static final String IP="0.0.0.0";
-    private static final int PORT=8080;
-    public static void main(String[] args){
+    private static final String IP = "0.0.0.0";
+    private static final int PORT = 8080;
+
+    public static void main(String[] args) {
         setIpAddress(IP);
         setPort(PORT);
         staticFileLocation("/public");
@@ -20,11 +21,10 @@ public class Bootstrap {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
+
     private static DB mongo() throws Exception {
         MongoClient mongoClient = new MongoClient("localhost");
         return mongoClient.getDB("shortlink");
-
     }
 }

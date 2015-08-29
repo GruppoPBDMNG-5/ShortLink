@@ -1,11 +1,13 @@
 package com.shorterner;
 
-import com.google.gson.Gson;
-import com.mongodb.*;
-import com.shorterner.utility.UrlCustom;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
+import com.shorterner.entity.Statistiche;
+import com.shorterner.entity.URL;
 import org.bson.types.ObjectId;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,14 +24,10 @@ public class UrlService {
         this.collectionStatistiche = db.getCollection("statistiche");
         this.collection.createIndex(new BasicDBObject("customURL", 1), "customURL", true);
         this.collection.createIndex(new BasicDBObject("click", -1));
-
-
     }
 
     public void createNewURL(String longURL, String shortURL) {
         URL url = new URL(longURL, shortURL);
-
-
         collection.insert(url.getBasicDBObjectClass());
         findTopTen();
     }
@@ -54,7 +52,6 @@ public class UrlService {
 
     public List<DBObject> findTopTen() {
         return collection.find().limit(10).sort(new BasicDBObject("click", -1)).toArray();
-
     }
 
     public Statistiche prendiStatistiche() {

@@ -1,7 +1,10 @@
-package com.shorterner;
+package com.shorterner.data_access;
 
 
 import com.google.gson.Gson;
+import com.shorterner.UrlService;
+import com.shorterner.entity.Statistiche;
+import com.shorterner.entity.URL;
 import com.shorterner.utility.IPGeo;
 import com.shorterner.utility.URLShortener;
 import com.shorterner.utility.UrlCustom;
@@ -9,8 +12,6 @@ import net.sf.uadetector.ReadableUserAgent;
 import net.sf.uadetector.UserAgentStringParser;
 import net.sf.uadetector.service.UADetectorServiceFactory;
 import spark.Request;
-
-import java.io.IOException;
 
 /**
  * Created by Vincenzo on 22/08/2015.
