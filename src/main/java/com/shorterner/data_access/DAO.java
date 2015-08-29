@@ -7,7 +7,7 @@ import com.shorterner.entity.Statistiche;
 import com.shorterner.entity.URL;
 import com.shorterner.utility.IPGeo;
 import com.shorterner.utility.URLShortener;
-import com.shorterner.utility.UrlCustom;
+import com.shorterner.entity.UrlCustom;
 import net.sf.uadetector.ReadableUserAgent;
 import net.sf.uadetector.UserAgentStringParser;
 import net.sf.uadetector.service.UADetectorServiceFactory;
@@ -28,12 +28,16 @@ public class DAO {
     }
 
     public URL creaUrlShort(String body) {
+        if (body.substring(0, 8).equals("https://")) {
+            body = body.replace("https://", "http://");
+        } else if (!body.substring(0, 7).equals("http://")) {
+            body = "http://" + body;
+        }
         URL url;
         try {
             url = urlService.findUrlByLongURL(body);
         } catch (NullPointerException e) {
             url = null;
-
         }
 
 
@@ -64,8 +68,13 @@ public class DAO {
     }
 
     public URL generaUrlCustom(String body) {
+        if (body.substring(12, 20).equals("https://")) {
+            body = body.replace("https://", "http://");
+        } else if (!body.substring(12, 19).equals("http://")) {
+            body = body.substring(0, 12) + "http://" + body.substring(12);
+        }
         UrlCustom urlCustom = new Gson().fromJson(body, UrlCustom.class);
-        urlCustom.setCustomURL("localhost:8080/#/" + urlCustom.getCustomURL());
+        urlCustom.setCustomURL("http://localhost:8080/#/" + urlCustom.getCustomURL());
         URL url = null;
         if (isAvailable(urlCustom) == INDISPONIBILE)
             return null;
@@ -88,7 +97,7 @@ public class DAO {
     }
 
     public URL getUrlStatistics(String body) {
-        return urlService.findUrlByLongURL(body);
+        return urlService.findURLByShortUrl(body);
     }
 
     public Statistiche getStatistics() {

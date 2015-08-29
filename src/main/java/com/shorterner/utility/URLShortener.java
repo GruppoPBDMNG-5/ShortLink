@@ -37,7 +37,7 @@ public class URLShortener {
             }
             myChars[i] = (char) j;
         }
-        domain = "localhost:8080/#";
+        domain = "http://localhost:8080/#";
     }
 
     // Constructor which enables you to define tiny URL key length and base URL

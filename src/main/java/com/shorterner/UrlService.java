@@ -33,8 +33,6 @@ public class UrlService {
     }
 
     public URL findURLByShortUrl(String shortURL) {
-        shortURL = shortURL.replace("http://", "");
-        shortURL = shortURL.replace("https://", "");
         return new URL((BasicDBObject) collection.findOne(new BasicDBObject("customURL", shortURL)));
     }
 

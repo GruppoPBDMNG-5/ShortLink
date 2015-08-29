@@ -4,9 +4,10 @@
 
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-        <h1 class="header center orange-text">Create custom Url</h1>
+        <h1 class="header center orange-text">Create custom URL</h1>
+
         <div class="row center">
-            <h5 class="header col s12 light">Write down url which you want to short</h5>
+            <h5 class="header col s12 light">Write down URL which you want to short</h5>
             <h6 class="header col s12 light">You can write a custome one if you want</h6>
         </div>
     </div>
@@ -20,13 +21,14 @@
         </div>
         <div class="input-field col s6">
             <input type="text" id="nomeCustom" ng-model="URL.customURL">
-            <label for="nomeCustom">Write custom short url</label>
+            <label for="nomeCustom">Write custom short URL</label>
         </div>
-        <br><br>
+        <br>
+
         <div class="center">
             <button type="submit" class="btn btn-default orange darken-4">Create Short Url</button>
         </div>
-        <br><br>
+        <br>
     </div>
     <div id="url-card" style="visibility: hidden" class="center-align card-panel">
         <div style="display:inline-block;font-size:1.64rem;vertical-align:middle">
@@ -36,7 +38,7 @@
             </a>
         </div>
         <div style="display:inline-block;font-size:1.64rem;vertical-align:middle">
-            <a style="margin-left:50px" ng-model ="URL.clicks" id="clicks">
+            <a style="margin-left:50px" ng-model="URL.clicks" id="clicks">
                 {{URL.clicks}}
             </a>
         </div>

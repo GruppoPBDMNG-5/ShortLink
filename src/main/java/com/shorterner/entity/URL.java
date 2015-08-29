@@ -17,7 +17,6 @@ public class URL {
     private HashMap<String, Integer> statisticheBrowser;
     private HashMap<String, Integer> statisticheOS;
 
-
     public URL(BasicDBObject dbObject) {
         this.longURL = dbObject.getString("_id");
         this.shortURL = dbObject.getString("shortURL");
