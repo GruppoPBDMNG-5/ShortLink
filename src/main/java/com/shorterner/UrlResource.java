@@ -28,7 +28,7 @@ public class UrlResource {
 
         get(API_CONTEXT + "/url_statistics/", "application/json", (request, response) -> dao.getUrlStatistics(request.queryParams("param1")), new JsonTransformer());
 
-        post(API_CONTEXT + "/top_sites", "application/json", (request, response) -> dao.getStatistics(), new JsonTransformer());
+        get(API_CONTEXT + "/top_sites", "application/json", (request, response) -> dao.getStatistics(), new JsonTransformer());
 
     }
 
