@@ -10,7 +10,7 @@ app.config(function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'views/createShort.html',
         controller: 'CreateShort'
-    }).when('/urlStatistics/:param1', {
+    }).when('/:param1/stats', {
         templateUrl: 'views/urlStatistics.html',
         controller: 'UrlStatisticsController'
     }).when('/topSites', {
@@ -29,13 +29,12 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
                 $http.post('/api/v1/short', $scope.URL.longURL).success(function (data) {
                     var short = data['shortURL'];
                     short = short.replace(/\"/g, "");
-                    short = 'http://' + short;
                     $scope.URL.short = short;
                     $scope.URL.clicks = data['click'];
                     document.getElementById("buttonStatistics").style.visibility = 'visible';
                     document.getElementById("url-card").style.visibility = 'visible';
-                    $scope.requestStatistics = '/#/urlStatistics/' + $scope.URL.longURL;
-                    //$cookieStore.put("longUrl", data['longURL']);
+                    short = short.replace("http://localhost:8080/#/", "");
+                    $scope.requestStatistics = '/#/' + short + '/stats';
                 })
             } else {
                 if (isABadWord($scope.URL.customURL)) {
@@ -45,14 +44,13 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
                         if (data == null) {
                             Materialize.toast('Word not available, try again', 5000);
                         } else {
-                            var short = $scope.URL.customURL;
-                            short = 'http://localhost:8080/#/' + short;
+                            var short = 'http://localhost:8080/#/' + $scope.URL.customURL;
                             $scope.URL.short = short;
                             $scope.URL.clicks = data['click'];
                             document.getElementById("buttonStatistics").style.visibility = 'visible';
                             document.getElementById("url-card").style.visibility = 'visible';
-                            //$cookies.put('longUrl', data['longURL']);
-                            $scope.requestStatistics = '/#/urlStatistics/' + $scope.URL.longURL;
+                            short = short.replace("http://localhost:8080/#/", "");
+                            $scope.requestStatistics = '/#/' + short + '/stats';
                         }
                     })
                 }
@@ -65,14 +63,11 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
 });
 
 app.controller('UrlStatisticsController', function ($scope, $http, $routeParams, $location) {
-    var param1 = $routeParams.param1;
-    var path = $location.path();
-
+    var param1 = 'http://localhost:8080/#/' + $routeParams.param1.replace("/stats", "");
     $http.get('/api/v1/url_statistics/', {params: {"param1": param1}}).success(function (data) {
         $scope.total_clicks = data['click'];
-        $scope.shortURL = data['shortURL'];
+        $scope.shortURL = param1;
         $scope.longURL = data['longURL'];
-        console.log($scope.longURL);
         $scope.geoChart = geoChart(data['statistichePaesi']);
         if (data['click'] == 0) {
             $scope.browserChart = barChart(null, 'Browser', '');
@@ -88,8 +83,22 @@ app.controller('UrlStatisticsController', function ($scope, $http, $routeParams,
 
 app.controller('TopSitesController', function ($scope, $http) {
 
-    $http.post('/api/v1/top_sites', '').success(function (data) {
-        console.log(data);
+    $http.get('/api/v1/top_sites').success(function(data) {
+        console.log(data)
+        var top = data['topTen'];
+        var array = [];
+        for(var index = 0; index < top.length; index ++) {
+            array.push({longURL: top[index]['longURL'], click: top[index]['click']});
+        }
+        $scope.sites = array;
+        $scope.geoChart = geoChart(data['statistichePaesi']);
+        if(data['site'] == 0) {
+            $scope.browserChart = barChart(null, 'Browser', '');
+            $scope.platformChart = barChart(null, 'Platform', '');
+        } else {
+            $scope.browserChart = barChart(data['statisticheBrowser'], 'Browser', 'Clicks');
+            $scope.platformChart = barChart(data['statisticheOS'], 'Platform', 'Clicks');
+        }
     });
 
 });
@@ -99,11 +108,7 @@ app.controller('longUrl', function ($scope, $http, $location) {
 
     $http.post('/api/v1/risultato', $location.absUrl()).success(function (data) {
         data = data.replace(/\"/g, "");
-        if (data.toString().indexOf("http://") > -1 || data.toString().indexOf("https://") > -1) {
-            location.href = data;
-        } else {
-            location.href = 'http://' + data;
-        }
+        location.href = data;
     })
 
 });

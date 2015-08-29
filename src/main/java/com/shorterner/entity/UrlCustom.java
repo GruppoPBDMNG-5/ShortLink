@@ -1,4 +1,4 @@
-package com.shorterner.utility;
+package com.shorterner.entity;
 
 import com.mongodb.BasicDBObject;
 
@@ -12,7 +12,6 @@ public class UrlCustom {
     public UrlCustom(BasicDBObject customURL) {
         this.customURL = customURL.getString("customURL");
         this.longURL = customURL.getString("longURL");
-
     }
 
     public void setCustomURL(String customURL) {
