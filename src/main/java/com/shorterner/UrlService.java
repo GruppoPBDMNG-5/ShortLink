@@ -1,14 +1,15 @@
 package com.shorterner;
 
-import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
+import com.mongodb.*;
 import com.shorterner.entity.Statistiche;
 import com.shorterner.entity.URL;
+import com.shorterner.entity.UrlCustom;
 import org.bson.types.ObjectId;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Vincenzo on 16/07/2015.
@@ -29,23 +30,28 @@ public class UrlService {
     public void createNewURL(String longURL, String shortURL) {
         URL url = new URL(longURL, shortURL);
         collection.insert(url.getBasicDBObjectClass());
-        findTopTen();
+
     }
 
-    public URL findURLByShortUrl(String shortURL) {
-        return new URL((BasicDBObject) collection.findOne(new BasicDBObject("customURL", shortURL)));
+    public String findURLByShortUrl(String shortURL) {
+        return ((BasicDBObject) collection.findOne(new BasicDBObject("customURL.URL", shortURL))).getString("_id");
     }
 
     public URL findUrlByLongURL(String longURL) {
         return new URL((BasicDBObject) collection.findOne(new BasicDBObject("_id", longURL)));
     }
+     public void aumentaClick(String url){
+         BasicDBObject query=new BasicDBObject().append("_id",url);
+         BasicDBObject newDocument =
+                 new BasicDBObject().append("$inc",
+                         new BasicDBObject().append("click", 1));
+         collection.update(query,newDocument);
 
-    public void aggiornaUrl(URL url) {
-        collection.update(new BasicDBObject().append("_id", url.getLongURL()), url.getBasicDBObjectClass());
-    }
+     }
+
 
     public URL findUrlByCustomUrl(String url) {
-        return new URL((BasicDBObject) collection.findOne(new BasicDBObject("customURL", url)));
+        return new URL((BasicDBObject) collection.findOne(new BasicDBObject("customURL.URL", url)));
     }
 
     public List<DBObject> findTopTen() {
@@ -63,8 +69,46 @@ public class UrlService {
 
         }
     }
+public void aggiornaListaCustom(String longURL,String customURL){
+    BasicDBObject query=new BasicDBObject().append("_id",longURL);
 
+
+    BasicDBObject var = new BasicDBObject("URL",customURL).append("statistiche",new Statistiche().getBasicDBObjectClass());
+    BasicDBObject updateDocument = new BasicDBObject();
+    ArrayList<BasicDBObject>arrayList=new ArrayList<>();
+    arrayList.addAll((Collection<? extends BasicDBObject>) collection.findOne(query).get("customURL"));
+    arrayList.add(var);
+    updateDocument.append("$set", new BasicDBObject("customURL",arrayList));
+        collection.update(query, updateDocument);
+
+
+}
+    public  void aggiornaStatisticheCustomURL(UrlCustom urlCustom){
+        BasicDBObject query=new BasicDBObject("_id",urlCustom.getLongURL());
+        ArrayList<BasicDBObject>arrayList=new ArrayList<>();
+        arrayList.addAll((Collection<? extends BasicDBObject>) collection.findOne(query).get("customURL"));
+        for (int i=0;i<arrayList.size();i++){
+            if(arrayList.get(i).getString("URL").equals(urlCustom.getCustomURL()))
+                arrayList.remove(i);
+        }
+        BasicDBObject var = new BasicDBObject("URL",urlCustom.getCustomURL()).append("statistiche",urlCustom.getStatistiche().getBasicDBObjectClass());
+        arrayList.add(var);
+        BasicDBObject updateDocument = new BasicDBObject();
+        updateDocument.append("$set", new BasicDBObject("customURL",arrayList));
+        collection.update(query,updateDocument);
+    }
     public void aggiornaStatistiche(Statistiche statistiche) {
+
         collectionStatistiche.update(new BasicDBObject().append("_id", new ObjectId(statistiche.getId())), statistiche.getBasicDBObjectClass());
+    }
+
+    public BasicDBObject prendiStatisticheShortURL(String shortUrl){
+        BasicDBList dbList= (BasicDBList) (collection.findOne(new BasicDBObject("customURL.URL", shortUrl))).get("customURL");
+         for(int i=0;i<dbList.size();i++){
+             BasicDBObject basicDBObject= (BasicDBObject) dbList.get(i);
+             if(basicDBObject.getString("URL").equals(shortUrl))
+                 return new BasicDBObject((Map) basicDBObject.get("statistiche"));
+         }
+        return new BasicDBObject();
     }
 }

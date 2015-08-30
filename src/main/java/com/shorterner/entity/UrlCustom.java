@@ -8,10 +8,15 @@ import com.mongodb.BasicDBObject;
 public class UrlCustom {
     private String longURL;
     private String customURL;
+    private Statistiche statistiche;
 
-    public UrlCustom(BasicDBObject customURL) {
-        this.customURL = customURL.getString("customURL");
-        this.longURL = customURL.getString("longURL");
+
+
+    public UrlCustom(String longURL,String customURL,BasicDBObject statistiche) {
+        this.longURL=longURL;
+        this.customURL = customURL;
+
+        this.statistiche=new Statistiche(statistiche);
     }
 
     public void setCustomURL(String customURL) {
@@ -26,11 +31,17 @@ public class UrlCustom {
         return longURL;
     }
 
+    public Statistiche getStatistiche() {
+        return statistiche;
+    }
+
+
     @Override
     public String toString() {
         return "UrlCustom{" +
                 "longURL='" + longURL + '\'' +
                 ", customURL='" + customURL + '\'' +
+                ", statistiche=" + statistiche +
                 '}';
     }
 }

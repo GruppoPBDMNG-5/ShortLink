@@ -54,11 +54,13 @@ public class DAO {
 
     public String espandiUrl(Request request) {
         try {
-            URL url = urlService.findURLByShortUrl(request.body());
+            String longURl=urlService.findURLByShortUrl(request.body());
+           UrlCustom url = new UrlCustom(longURl,request.body(),urlService.prendiStatisticheShortURL(request.body()));
             UserAgentStringParser parser = UADetectorServiceFactory.getResourceModuleParser();
             ReadableUserAgent agent = parser.parse(request.userAgent());
-            aggiornaUrl(agent, request.ip(), url);
+           aggiornaUrl(agent, request.ip(), url);
             aggiornaStatistiche(agent, request.ip());
+            urlService.aumentaClick(url.getLongURL());
             return url.getLongURL();
         } catch (NullPointerException e) {
             return "nessuno";
@@ -84,32 +86,33 @@ public class DAO {
         }
         try {
             url = urlService.findUrlByLongURL(urlCustom.getLongURL());
-            url.addCustomURL(urlCustom.getCustomURL());
+            urlService.aggiornaListaCustom(urlCustom.getLongURL(),urlCustom.getCustomURL());
         } catch (NullPointerException e) {
             url = new URL(urlCustom.getLongURL(), URLShortener.shortenURL(urlCustom.getLongURL()));
             urlService.createNewURL(url.getLongURL(), url.getShortURL());
-            url.addCustomURL(urlCustom.getCustomURL());
-        } finally {
-            urlService.aggiornaUrl(url);
-            aggiungiSitoStatistiche();
+            urlService.aggiornaListaCustom(urlCustom.getLongURL(), urlCustom.getCustomURL());
+           aggiungiSitoStatistiche();
             return url;
         }
+        return url;
     }
 
-    public URL getUrlStatistics(String body) {
-        return urlService.findURLByShortUrl(body);
+    public UrlCustom getUrlStatistics(String body) {
+        String longURl=urlService.findURLByShortUrl(body);
+        UrlCustom url = new UrlCustom(longURl,body,urlService.prendiStatisticheShortURL(body));
+       return url;
     }
 
     public Statistiche getStatistics() {
         return urlService.prendiStatistiche();
     }
 
-    private void aggiornaUrl(ReadableUserAgent agent, String ip, URL url) {
-        url.addClickOS(agent.getOperatingSystem().getFamilyName());
-        url.addClickBrowser(agent.getFamily().getName());
-        url.addClick();
-        url.addClickCountry(IPGeo.getCountry(ip));
-        urlService.aggiornaUrl(url);
+    private void aggiornaUrl(ReadableUserAgent agent, String ip, UrlCustom url) {
+       url.getStatistiche().addClickOS(agent.getOperatingSystem().getFamilyName());
+    url.getStatistiche().addClickBrowser(agent.getFamily().getName());
+        url.getStatistiche().addNum();
+        url.getStatistiche().addClickCountry(IPGeo.getCountry(ip));
+        urlService.aggiornaStatisticheCustomURL(url);
     }
 
     private void aggiornaStatistiche(ReadableUserAgent agent, String ip) {
@@ -133,7 +136,7 @@ public class DAO {
 
     private void aggiungiSitoStatistiche() {
         Statistiche statistiche = urlService.prendiStatistiche();
-        statistiche.addSite();
+        statistiche.addNum();
         urlService.aggiornaStatistiche(statistiche);
 
     }
