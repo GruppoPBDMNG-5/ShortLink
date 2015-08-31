@@ -71,7 +71,7 @@ app.controller('UrlStatisticsController', function ($scope, $http, $routeParams,
         $scope.shortURL = param1;
         $scope.longURL = data['longURL'];
         $scope.geoChart = geoChart((data['statistiche'])['statistichePaesi']);
-        if (data['click'] == 0) {
+        if ((data['statistiche'])['num'] == 0) {
             $scope.browserChart = barChart(null, 'Browser', '');
             $scope.platformChart = barChart(null, 'Platform', '');
         } else {
