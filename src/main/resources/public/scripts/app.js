@@ -44,6 +44,8 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
                     console.log(data)
                         if (data==='null') {
                             Materialize.toast('Word not available, try again', 5000);
+                              document.getElementById("buttonStatistics").style.visibility = 'hidden';
+                                document.getElementById("url-card").style.visibility = 'hidden';
                         } else {
                             var short = 'http://localhost:8080/#/' + $scope.URL.customURL;
                             $scope.URL.short = short;
@@ -58,6 +60,8 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
             }
         } else {
             Materialize.toast('Url not allowed, check it please.', 5000);
+            document.getElementById("buttonStatistics").style.visibility = 'hidden';
+            document.getElementById("url-card").style.visibility = 'hidden';
         }
     }
 
