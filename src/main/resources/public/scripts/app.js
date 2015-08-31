@@ -101,6 +101,7 @@ app.controller('TopSitesController', function ($scope, $http) {
             $scope.browserChart = barChart(data['statisticheBrowser'], 'Browser', 'Clicks');
             $scope.platformChart = barChart(data['statisticheOS'], 'Platform', 'Clicks');
         }
+        $scope.totalClicks = data['num'];
     });
 
 });
