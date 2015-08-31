@@ -6,15 +6,17 @@
     <table>
         <thead>
         <tr>
-            <th data-field="pos" class="orange-text">Position</th>
-            <th data-field="site" class="orange-text">Site</th>
-            <th data-field="clicks" class="orange-text">Clicks</th>
+            <th data-field="pos" class="orange-text" style="padding-top: 0;">Position</th>
+            <th data-field="site" class="orange-text" style="padding-top: 0;">Site</th>
+            <th data-field="clicks" class="orange-text right" style="padding-top: 0;">Clicks</th>
         </tr>
         </thead>
 
         <tbody>
         <tr ng-repeat="site in sites track by $index">
-            <td>{{$index + 1}}</td><td><a ng-href="{{site.longURL}}">{{site.longURL}}</a></td><td>{{site.click}}</td>
+            <td style="padding-bottom: 0;">{{$index + 1}}</td>
+            <td style="padding-bottom: 0;"><a ng-href="{{site.longURL}}">{{site.longURL}}</a></td>
+            <td class ="right"style="padding-bottom: 0;">{{site.click}}</td>
         </tr>
         </tbody>
     </table>

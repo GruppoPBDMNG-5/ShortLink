@@ -4,15 +4,15 @@
 
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
-        <h1 class="header center orange-text">Create custom URL</h1>
+        <h1 class="header center orange-text">Create shorten URL</h1>
 
         <div class="row center">
-            <h5 class="header col s12 light">Write down URL which you want to short</h5>
-            <h6 class="header col s12 light">You can write a custome one if you want</h6>
+            <h5 class="header col s12 light">Write the URL you want to shorten</h5>
+            <h6 class="header col s12 light">You can write a custom one if you want</h6>
         </div>
     </div>
 </div>
-<br><br>
+<br>
 <form class="form-horizontal" role="form" ng-submit="createUrl()">
     <div class="card-panel">
         <div class="input-field col s6">
@@ -25,35 +25,56 @@
         </div>
         <br>
 
-        <div class="center">
-            <button type="submit"href="#!" class="btn btn-default orange darken-4"onclick="Materialize.showStaggeredList('#url-card')">Create Short Url</button>
+        <div>
+            <div style="display: inline-block;vertical-align: middle;">
+                <button style="height: 50px;padding-left: 20px;padding-right: 15px" type="submit" href="#!"
+                        class="btn btn-default orange darken-4"
+                        onclick="Materialize.showStaggeredList('#url-card')">Shorten  >
+                </button>
+            </div>
+            <div id="url-card" style="margin-top:7px;visibility: hidden; display: inline-block;vertical-align: middle;" class="right" >
+                <ul style="margin:0;">
+                    <li style="transform: translateX(0px); opacity: 1;">
+                        <div class="left-align"  style="display:inline-block;font-size:1.64rem;vertical-align: middle;margin-left:30px">
+                            <a id="shortLinkLabel" target="_blank" ng-href="{{URL.short}}" id="shortLabel" type="text"
+                               ng-model="URL.short">
+                                {{URL.short}}
+                            </a>
+                        </div>
+                        <div class="right" style="display:inline-block;vertical-align: middle;margin-left: 20px">
+                            <a ng-href="{{requestStatistics}}" id="buttonStatistics" style="visibility: hidden"
+                               class=" btn-floating btn-medium waves-effect waves-light orange darken-4">
+                                <i class="material-icons">equalizer</i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <br>
     </div>
 
 
-
-    <div id="url-card" style="visibility: hidden" class="center-align card-panel">
-        <ul >
-        <li class style="transform: translateX(0px); opacity: 1;">
-        <div style="display:inline-block;font-size:1.64rem;vertical-align:middle">
-            <a id="shortLinkLabel" target="_blank" ng-href="{{URL.short}}" id="shortLabel" type="text"
-               ng-model="URL.short">
-                {{URL.short}}
-            </a>
-        </div>
-        <div style="display:inline-block;font-size:1.64rem;vertical-align:middle">
-            <a style="margin-left:50px" ng-model="URL.clicks" id="clicks">
-                {{URL.clicks}}
-            </a>
-        </div>
-        <div style="display:inline-block;vertical-align:middle">
-            <a ng-href="{{requestStatistics}}" id="buttonStatistics" style="visibility: hidden"
-               class=" btn-floating btn-medium waves-effect waves-light orange darken-4">
-                <i class="material-icons">equalizer</i>
-            </a>
-        </div>
-        </li>
-        </ul>
-    </div>
+    <!--<div id="url-card" style="visibility: hidden" class="center-align card-panel">-->
+    <!--<ul>-->
+    <!--<li class style="transform: translateX(0px); opacity: 1;">-->
+    <!--<div style="display:inline-block;font-size:1.64rem;vertical-align:middle">-->
+    <!--<a id="shortLinkLabel" target="_blank" ng-href="{{URL.short}}" id="shortLabel" type="text"-->
+    <!--ng-model="URL.short">-->
+    <!--{{URL.short}}-->
+    <!--</a>-->
+    <!--</div>-->
+    <!--<div style="display:inline-block;font-size:1.64rem;vertical-align:middle">-->
+    <!--<a style="margin-left:50px" ng-model="URL.clicks" id="clicks">-->
+    <!--{{URL.clicks}}-->
+    <!--</a>-->
+    <!--</div>-->
+    <!--<div style="display:inline-block;vertical-align:middle">-->
+    <!--<a ng-href="{{requestStatistics}}" id="buttonStatistics" style="visibility: hidden"-->
+    <!--class=" btn-floating btn-medium waves-effect waves-light orange darken-4">-->
+    <!--<i class="material-icons">equalizer</i>-->
+    <!--</a>-->
+    <!--</div>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
 </form>
