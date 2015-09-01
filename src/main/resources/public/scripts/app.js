@@ -13,6 +13,9 @@ app.config(function ($routeProvider) {
     }).when('/:param1/stats', {
         templateUrl: 'views/urlStatistics.html',
         controller: 'UrlStatisticsController'
+    }).when('/404_Rendering_Error_Page_Not_Found', {
+        templateUrl: 'views/404.html',
+        controller: 'PageNotFoundController'
     }).when('/topSites', {
         templateUrl: 'views/topSites.html',
         controller: 'TopSitesController'
@@ -22,7 +25,7 @@ app.config(function ($routeProvider) {
     })
 });
 
-app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) {
+app.controller('CreateShort', function ($scope, $http) {
     $scope.createUrl = function () {
         if (checkLongUrl($scope.URL.longURL)) {
             if (!$scope.URL.customURL) {
@@ -41,11 +44,10 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
                     Materialize.toast('Custom url not allowed due to bad words, please check it.', 5000);
                 } else {
                     $http.post('/api/v1/shortCustom', $scope.URL).success(function (data) {
-                    console.log(data)
-                        if (data==='null') {
+                        if (data === 'null') {
                             Materialize.toast('Word not available, try again', 5000);
-                              document.getElementById("buttonStatistics").style.visibility = 'hidden';
-                                document.getElementById("url-card").style.visibility = 'hidden';
+                            document.getElementById("buttonStatistics").style.visibility = 'hidden';
+                            document.getElementById("url-card").style.visibility = 'hidden';
                         } else {
                             var short = 'http://localhost:8080/#/' + $scope.URL.customURL;
                             $scope.URL.short = short;
@@ -67,10 +69,12 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
 
 });
 
+app.controller('PageNotFoundController', function ($scope) {
+});
+
 app.controller('UrlStatisticsController', function ($scope, $http, $routeParams, $location) {
     var param1 = 'http://localhost:8080/#/' + $routeParams.param1.replace("/stats", "");
     $http.get('/api/v1/url_statistics/', {params: {"param1": param1}}).success(function (data) {
-    console.log(data)
         $scope.total_clicks = (data['statistiche'])['num'];
         $scope.shortURL = param1;
         $scope.longURL = data['longURL'];
@@ -89,16 +93,15 @@ app.controller('UrlStatisticsController', function ($scope, $http, $routeParams,
 
 app.controller('TopSitesController', function ($scope, $http) {
 
-    $http.get('/api/v1/top_sites').success(function(data) {
-        console.log(data)
+    $http.get('/api/v1/top_sites').success(function (data) {
         var top = data['topTen'];
         var array = [];
-        for(var index = 0; index < top.length; index ++) {
+        for (var index = 0; index < top.length; index++) {
             array.push({longURL: top[index]['longURL'], click: top[index]['click']});
         }
         $scope.sites = array;
         $scope.geoChart = geoChart(data['statistichePaesi']);
-        if(data['num'] == 0) {
+        if (data['num'] == 0) {
             $scope.browserChart = barChart(null, 'Browser', '');
             $scope.platformChart = barChart(null, 'Platform', '');
         } else {

@@ -63,7 +63,7 @@ public class DAO {
             urlService.aumentaClick(url.getLongURL());
             return url.getLongURL();
         } catch (NullPointerException e) {
-            return "nessuno";
+            return "/#/404_Rendering_Error_Page_Not_Found";
         }
 
 
