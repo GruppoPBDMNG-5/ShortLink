@@ -1,4 +1,4 @@
-package com.shorterner;
+package com.shorterner.presentation;
 
 import com.shorterner.data_access.DAO;
 import com.shorterner.utility.JsonTransformer;

@@ -41,7 +41,7 @@ app.controller('CreateShort', function ($scope, $http) {
                 })
             } else {
                 if (!isValid($scope.URL.customURL)) {
-                    Materialize.toast('Custom url not allowed! It can contains only letters and numbers; bad words are not allowed.', 5000);
+                    Materialize.toast('Custom url not allowed! It can contains only letters and numbers; bad words are not allowed.', 7000);
                     document.getElementById("buttonStatistics").style.visibility = 'hidden';
                     document.getElementById("url-card").style.visibility = 'hidden';
                 } else {

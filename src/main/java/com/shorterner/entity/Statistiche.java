@@ -30,13 +30,15 @@ public class Statistiche {
         this.statisticheBrowser = (HashMap<String, Integer>) statistiche.get("browser");
         this.statisticheOS = (HashMap<String, Integer>) statistiche.get("os");
     }
-public Statistiche(BasicDBObject statistiche){
-    this.num = statistiche.getInt("num");
-    this.statistichePaesi = (HashMap<String, Integer>) statistiche.get("paesi");
-    this.statisticheBrowser = (HashMap<String, Integer>) statistiche.get("browser");
-    this.statisticheOS = (HashMap<String, Integer>) statistiche.get("os");
 
-}
+    public Statistiche(BasicDBObject statistiche) {
+        this.num = statistiche.getInt("num");
+        this.statistichePaesi = (HashMap<String, Integer>) statistiche.get("paesi");
+        this.statisticheBrowser = (HashMap<String, Integer>) statistiche.get("browser");
+        this.statisticheOS = (HashMap<String, Integer>) statistiche.get("os");
+
+    }
+
     public Statistiche() {
         num = 0;
         statisticheBrowser = new HashMap<>();

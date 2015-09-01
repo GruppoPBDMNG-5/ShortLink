@@ -2,7 +2,7 @@ package com.shorterner.data_access;
 
 
 import com.google.gson.Gson;
-import com.shorterner.UrlService;
+import com.shorterner.presentation.UrlService;
 import com.shorterner.entity.Statistiche;
 import com.shorterner.entity.URL;
 import com.shorterner.utility.IPGeo;
@@ -33,6 +33,7 @@ public class DAO {
         } else if (!body.substring(0, 7).equals("http://")) {
             body = "http://" + body;
         }
+        if (body.charAt(body.length() - 1) == '/') body = body.substring(0, body.length() - 1);
         URL url;
         try {
             url = urlService.findUrlByLongURL(body);

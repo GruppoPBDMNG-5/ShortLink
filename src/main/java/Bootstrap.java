@@ -1,7 +1,7 @@
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
-import com.shorterner.UrlResource;
-import com.shorterner.UrlService;
+import com.shorterner.presentation.UrlResource;
+import com.shorterner.presentation.UrlService;
 
 import static spark.Spark.*;
 
@@ -17,7 +17,9 @@ public class Bootstrap {
         setPort(PORT);
         staticFileLocation("/public");
         try {
-            new UrlResource(new UrlService(mongo()));
+            UrlService s = new UrlService(mongo());
+            new UrlResource(s);
+            s.popoladb();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -27,4 +29,5 @@ public class Bootstrap {
         MongoClient mongoClient = new MongoClient("localhost");
         return mongoClient.getDB("shortlink");
     }
+
 }
