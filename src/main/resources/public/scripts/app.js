@@ -40,8 +40,10 @@ app.controller('CreateShort', function ($scope, $http) {
                     $scope.requestStatistics = '/#/' + short + '/stats';
                 })
             } else {
-                if (isABadWord($scope.URL.customURL)) {
-                    Materialize.toast('Custom url not allowed due to bad words, please check it.', 5000);
+                if (!isValid($scope.URL.customURL)) {
+                    Materialize.toast('Custom url not allowed! It can contains only letters and numbers; bad words are not allowed.', 7000);
+                    document.getElementById("buttonStatistics").style.visibility = 'hidden';
+                    document.getElementById("url-card").style.visibility = 'hidden';
                 } else {
                     $http.post('/api/v1/shortCustom', $scope.URL).success(function (data) {
                         if (data === 'null') {
@@ -61,7 +63,7 @@ app.controller('CreateShort', function ($scope, $http) {
                 }
             }
         } else {
-            Materialize.toast('Url not allowed, check it please.', 5000);
+            Materialize.toast('Url not allowed!', 5000);
             document.getElementById("buttonStatistics").style.visibility = 'hidden';
             document.getElementById("url-card").style.visibility = 'hidden';
         }
