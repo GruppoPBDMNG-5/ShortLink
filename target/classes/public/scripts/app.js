@@ -6,57 +6,16 @@ var app = angular.module('shortLink', [
     'googlechart'
 ]);
 
-app.config(function ($routeProvider, $locationProvider, $httpProvider) {
-
-    var interceptor = [
-        '$rootScope', '$q', function (scope, $q) {
-
-            function success(response) {
-                return response;
-            }
-
-            function error(response) {
-                var status = response.status;
-                //
-                //if (status == 401) {
-                //    var deferred = $q.defer();
-                //    var req = {
-                //        config: response.config,
-                //        deferred: deferred
-                //    };
-                //    window.location = "/";
-                //}
-
-                if (status == 404) {
-                    var deferred = $q.defer();
-                    var req = {
-                        config: response.config,
-                        deferred: deferred
-                    };
-                    window.location = "#/404";
-                }
-                //// otherwise
-                ////return $q.reject(response);
-                //window.location = "#/500";
-            }
-
-            return function (promise) {
-                return promise.then(success, error);
-            };
-
-        }
-    ];
-    $httpProvider.responseInterceptors.push(interceptor);
-
+app.config(function ($routeProvider) {
     $routeProvider.when('/', {
         templateUrl: 'views/createShort.html',
         controller: 'CreateShort'
     }).when('/:param1/stats', {
         templateUrl: 'views/urlStatistics.html',
         controller: 'UrlStatisticsController'
-    }).when('/404', {
+    }).when('/404_Rendering_Error_Page_Not_Found', {
         templateUrl: 'views/404.html',
-        controller: 'UrlNotFound'
+        controller: 'PageNotFoundController'
     }).when('/topSites', {
         templateUrl: 'views/topSites.html',
         controller: 'TopSitesController'
@@ -88,6 +47,8 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
                     console.log(data)
                         if (data==='null') {
                             Materialize.toast('Word not available, try again', 5000);
+                              document.getElementById("buttonStatistics").style.visibility = 'hidden';
+                                document.getElementById("url-card").style.visibility = 'hidden';
                         } else {
                             var short = 'http://localhost:8080/#/' + $scope.URL.customURL;
                             $scope.URL.short = short;
@@ -102,9 +63,15 @@ app.controller('CreateShort', function ($scope, $http, $location, $cookieStore) 
             }
         } else {
             Materialize.toast('Url not allowed, check it please.', 5000);
+            document.getElementById("buttonStatistics").style.visibility = 'hidden';
+            document.getElementById("url-card").style.visibility = 'hidden';
         }
     }
 
+});
+
+app.controller('PageNotFoundController', function ($scope) {
+    console.log('prova');
 });
 
 app.controller('UrlStatisticsController', function ($scope, $http, $routeParams, $location) {
@@ -125,10 +92,6 @@ app.controller('UrlStatisticsController', function ($scope, $http, $routeParams,
     });
 
 
-});
-
-app.controller('UrlNotFound', function($scope) {
-    console.log('prova');
 });
 
 app.controller('TopSitesController', function ($scope, $http) {
@@ -157,10 +120,9 @@ app.controller('TopSitesController', function ($scope, $http) {
 
 app.controller('longUrl', function ($scope, $http, $location) {
 
-    console.log('sono entrato nel controller longURL');
     $http.post('/api/v1/risultato', $location.absUrl()).success(function (data) {
         data = data.replace(/\"/g, "");
         location.href = data;
-    });
-    
+    })
+
 });
