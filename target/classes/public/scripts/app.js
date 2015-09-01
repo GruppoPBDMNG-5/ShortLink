@@ -6,13 +6,57 @@ var app = angular.module('shortLink', [
     'googlechart'
 ]);
 
-app.config(function ($routeProvider) {
+app.config(function ($routeProvider, $locationProvider, $httpProvider) {
+
+    var interceptor = [
+        '$rootScope', '$q', function (scope, $q) {
+
+            function success(response) {
+                return response;
+            }
+
+            function error(response) {
+                var status = response.status;
+                //
+                //if (status == 401) {
+                //    var deferred = $q.defer();
+                //    var req = {
+                //        config: response.config,
+                //        deferred: deferred
+                //    };
+                //    window.location = "/";
+                //}
+
+                if (status == 404) {
+                    var deferred = $q.defer();
+                    var req = {
+                        config: response.config,
+                        deferred: deferred
+                    };
+                    window.location = "#/404";
+                }
+                //// otherwise
+                ////return $q.reject(response);
+                //window.location = "#/500";
+            }
+
+            return function (promise) {
+                return promise.then(success, error);
+            };
+
+        }
+    ];
+    $httpProvider.responseInterceptors.push(interceptor);
+
     $routeProvider.when('/', {
         templateUrl: 'views/createShort.html',
         controller: 'CreateShort'
     }).when('/:param1/stats', {
         templateUrl: 'views/urlStatistics.html',
         controller: 'UrlStatisticsController'
+    }).when('/404', {
+        templateUrl: 'views/404.html',
+        controller: 'UrlNotFound'
     }).when('/topSites', {
         templateUrl: 'views/topSites.html',
         controller: 'TopSitesController'
@@ -83,6 +127,10 @@ app.controller('UrlStatisticsController', function ($scope, $http, $routeParams,
 
 });
 
+app.controller('UrlNotFound', function($scope) {
+    console.log('prova');
+});
+
 app.controller('TopSitesController', function ($scope, $http) {
 
     $http.get('/api/v1/top_sites').success(function(data) {
@@ -109,9 +157,10 @@ app.controller('TopSitesController', function ($scope, $http) {
 
 app.controller('longUrl', function ($scope, $http, $location) {
 
+    console.log('sono entrato nel controller longURL');
     $http.post('/api/v1/risultato', $location.absUrl()).success(function (data) {
         data = data.replace(/\"/g, "");
         location.href = data;
-    })
-
+    });
+    
 });
