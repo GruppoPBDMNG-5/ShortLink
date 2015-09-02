@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * Created by Vincenzo on 26/08/2015.
- */
 public class Statistiche {
     private String id;
     private ArrayList<URL> topTen;

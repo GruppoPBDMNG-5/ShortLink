@@ -3,11 +3,7 @@ package com.shorterner.entity;
 import com.mongodb.BasicDBObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
-/**
- * Created by Vincenzo on 20/08/2015.
- */
 public class URL {
     private String longURL;
     private String shortURL;
@@ -45,7 +41,6 @@ public class URL {
     }
 
 
-
     public ArrayList<String> getCustomURL() {
         return customURL;
     }
@@ -68,12 +63,12 @@ public class URL {
 
     public BasicDBObject getBasicDBObjectClass() {
 
-BasicDBObject customURL=new BasicDBObject("URL",shortURL).append("statistiche",new Statistiche().getBasicDBObjectClass());
-        ArrayList<BasicDBObject>arrayList=new ArrayList<>();
+        BasicDBObject customURL = new BasicDBObject("URL", shortURL).append("statistiche", new Statistiche().getBasicDBObjectClass());
+        ArrayList<BasicDBObject> arrayList = new ArrayList<>();
         arrayList.add(customURL);
         BasicDBObject document = new BasicDBObject("_id", this.longURL)
                 .append("shortURL", this.shortURL)
-                .append("customURL",arrayList)
+                .append("customURL", arrayList)
                 .append("click", this.click);
 
 

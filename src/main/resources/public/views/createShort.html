@@ -29,13 +29,15 @@
             <div style="display: inline-block;vertical-align: middle;">
                 <button style="height: 50px;padding-left: 20px;padding-right: 15px" type="submit" href="#!"
                         class="btn btn-default orange darken-4"
-                        onclick="Materialize.showStaggeredList('#url-card')">Shorten  >
+                        onclick="Materialize.showStaggeredList('#url-card')">Shorten >
                 </button>
             </div>
-            <div id="url-card" style="margin-top:7px;visibility: hidden; display: inline-block;vertical-align: middle;" class="right" >
+            <div id="url-card" style="margin-top:7px;visibility: hidden; display: inline-block;vertical-align: middle;"
+                 class="right">
                 <ul style="margin:0;">
                     <li style="transform: translateX(0px); opacity: 1;">
-                        <div class="left-align"  style="display:inline-block;font-size:1.64rem;vertical-align: middle;margin-left:30px">
+                        <div class="left-align"
+                             style="display:inline-block;font-size:1.64rem;vertical-align: middle;margin-left:30px">
                             <a id="shortLinkLabel" target="_blank" ng-href="{{URL.short}}" id="shortLabel" type="text"
                                ng-model="URL.short">
                                 {{URL.short}}
@@ -52,29 +54,4 @@
             </div>
         </div>
     </div>
-
-
-    <!--<div id="url-card" style="visibility: hidden" class="center-align card-panel">-->
-    <!--<ul>-->
-    <!--<li class style="transform: translateX(0px); opacity: 1;">-->
-    <!--<div style="display:inline-block;font-size:1.64rem;vertical-align:middle">-->
-    <!--<a id="shortLinkLabel" target="_blank" ng-href="{{URL.short}}" id="shortLabel" type="text"-->
-    <!--ng-model="URL.short">-->
-    <!--{{URL.short}}-->
-    <!--</a>-->
-    <!--</div>-->
-    <!--<div style="display:inline-block;font-size:1.64rem;vertical-align:middle">-->
-    <!--<a style="margin-left:50px" ng-model="URL.clicks" id="clicks">-->
-    <!--{{URL.clicks}}-->
-    <!--</a>-->
-    <!--</div>-->
-    <!--<div style="display:inline-block;vertical-align:middle">-->
-    <!--<a ng-href="{{requestStatistics}}" id="buttonStatistics" style="visibility: hidden"-->
-    <!--class=" btn-floating btn-medium waves-effect waves-light orange darken-4">-->
-    <!--<i class="material-icons">equalizer</i>-->
-    <!--</a>-->
-    <!--</div>-->
-    <!--</li>-->
-    <!--</ul>-->
-    <!--</div>-->
 </form>

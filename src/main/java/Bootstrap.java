@@ -5,9 +5,6 @@ import com.shorterner.presentation.UrlService;
 
 import static spark.Spark.*;
 
-/**
- * Created by Vincenzo on 16/07/2015.
- */
 public class Bootstrap {
     private static final String IP = "0.0.0.0";
     private static final int PORT = 8080;
@@ -29,7 +26,7 @@ public class Bootstrap {
 
 
     private static DB mongo() throws Exception {
-        MongoClient mongoClient = new MongoClient("localhost");
+        MongoClient mongoClient = new MongoClient("locahost");
         return mongoClient.getDB("shortlink");
     }
 

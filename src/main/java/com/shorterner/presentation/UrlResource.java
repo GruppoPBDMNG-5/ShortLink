@@ -6,9 +6,6 @@ import com.shorterner.utility.JsonTransformer;
 import static spark.Spark.get;
 import static spark.Spark.post;
 
-/**
- * Created by Vincenzo on 16/07/2015.
- */
 public class UrlResource {
     private static final String API_CONTEXT = "/api/v1";
     private DAO dao;
