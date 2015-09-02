@@ -19,11 +19,14 @@ public class Bootstrap {
         try {
             UrlService s = new UrlService(mongo());
             new UrlResource(s);
-            s.popoladb();
+//            s.droppadb();
+//            s.popoladb();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+
 
     private static DB mongo() throws Exception {
         MongoClient mongoClient = new MongoClient("localhost");

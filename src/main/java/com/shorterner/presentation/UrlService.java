@@ -29,9 +29,6 @@ public class UrlService {
     }
 
     public void popoladb() {
-        collection.drop();
-        collectionStatistiche.drop();
-
         BasicDBObject obj0 = (BasicDBObject) JSON.parse("{\"_id\":\"http://www.google.it\",\"shortURL\":\"http://localhost:8080/#/EwJKLU\",\"customURL\":[{\"URL\":\"http://localhost:8080/#/EwJKLU\",\"statistiche\":{\"num\":6500,\"paesi\":{\"Italy\":1500,\"United States of America\":3000,\"Japan\":2000},\"browser\":{\"Chrome\":5500,\"ChromeMobile\":500,\"Firefox\":500},\"os\":{\"Windows\":6000,\"Android\":250,\"iOS\":250}}}],\"click\":6500}");
         BasicDBObject obj1 = (BasicDBObject) JSON.parse("{\"_id\":\"http://www.imdb.com\",\"shortURL\":\"http://localhost:8080/#/nLikeq\",\"customURL\":[{\"URL\":\"http://localhost:8080/#/nLikeq\",\"statistiche\":{\"num\":650,\"paesi\":{\"Canada\":150,\"Japan\":300,\"United States of America\":200},\"browser\":{\"Chrome\":550,\"ChromeMobile\":50,\"Firefox\":50},\"os\":{\"Windows\":600,\"Android\":25,\"iOS\":25}}},{\"URL\":\"http://localhost:8080/#/asodijoijas\",\"statistiche\":{\"num\":1,\"paesi\":{\"Japan\":1},\"browser\":{\"Chrome\":1},\"os\":{\"Windows\":1}}}],\"click\":651}");
         BasicDBObject obj2 = (BasicDBObject) JSON.parse("{\"_id\":\"http://www.youtube.com\",\"shortURL\":\"http://localhost:8080/#/iI4foh\",\"customURL\":[{\"URL\":\"http://localhost:8080/#/iI4foh\",\"statistiche\":{\"num\":65000,\"paesi\":{\"Canada\":15000,\"Germany\":30000,\"France\":20000},\"browser\":{\"Chrome\":55000,\"ChromeMobile\":5000,\"Firefox\":5000},\"os\":{\"Windows\":60000,\"Android\":2500,\"iOS\":2500}}},{\"URL\":\"http://localhost:8080/#/youtube\",\"statistiche\":{\"num\":11,\"paesi\":{\"United States of America\":11},\"browser\":{\"Chrome\":11},\"os\":{\"Windows\":11}}}],\"click\":65011}");
@@ -60,6 +57,11 @@ public class UrlService {
 
         BasicDBObject stats = (BasicDBObject) JSON.parse("{\"num\":6118,\"paesi\":{\"United States of America\":35016,\"Brazil\":3016,\"Russia\":325016,\"Russia\":5676,\"South Africa\":67808,\"China\":405678,\"Canada\":46702,\"France\":236505,\"Italy\":167075,\"Germany\":30020,\"Japan\":302501},\"browser\":{\"Chrome\":1643164,\"ChromeMobile\":987150,\"Firefox\":187505,\"Safari\":27150,\"Opera\":5675},\"os\":{\"Windows\":2712269,\"Android\":957902,\"iOS\":759675,\"Windows Phone\":59375,\"Linux\":24536}}");
         collectionStatistiche.insert(stats);
+    }
+
+    public void droppadb() {
+        collection.drop();
+        collectionStatistiche.drop();
     }
 
     public void createNewURL(String longURL, String shortURL) {
