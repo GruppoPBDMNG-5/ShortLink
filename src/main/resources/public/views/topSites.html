@@ -16,7 +16,7 @@
         <tr ng-repeat="site in sites track by $index">
             <td style="padding-bottom: 0;">{{$index + 1}}</td>
             <td style="padding-bottom: 0;"><a ng-href="{{site.longURL}}">{{site.longURL}}</a></td>
-            <td class ="right"style="padding-bottom: 0;">{{site.click}}</td>
+            <td class="right" style="padding-bottom: 0;">{{site.click}}</td>
         </tr>
         </tbody>
     </table>
@@ -72,6 +72,6 @@
         <hr style="border-color: white; background-color: white">
     </div>
     <div>
-       <b><h4 class="header white-text center" ngModel="totalClicks">{{totalClicks}}</h4></b>
+        <b><h4 class="header white-text center" ngModel="totalClicks">{{totalClicks}}</h4></b>
     </div>
 </div>

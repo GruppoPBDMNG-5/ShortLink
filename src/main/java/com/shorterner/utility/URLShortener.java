@@ -3,9 +3,6 @@ package com.shorterner.utility;
 import java.util.HashMap;
 import java.util.Random;
 
-/**
- * Created by Vincenzo on 14/07/2015.
- */
 public class URLShortener {
     // storage for generated keys
     private static HashMap<String, String> keyMap; // key-url map

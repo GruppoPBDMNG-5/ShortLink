@@ -12,9 +12,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by Vincenzo on 16/07/2015.
- */
 public class UrlService {
     private final DB db;
     private final DBCollection collection;

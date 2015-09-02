@@ -2,20 +2,17 @@ package com.shorterner.data_access;
 
 
 import com.google.gson.Gson;
-import com.shorterner.presentation.UrlService;
 import com.shorterner.entity.Statistiche;
 import com.shorterner.entity.URL;
+import com.shorterner.entity.UrlCustom;
+import com.shorterner.presentation.UrlService;
 import com.shorterner.utility.IPGeo;
 import com.shorterner.utility.URLShortener;
-import com.shorterner.entity.UrlCustom;
 import net.sf.uadetector.ReadableUserAgent;
 import net.sf.uadetector.UserAgentStringParser;
 import net.sf.uadetector.service.UADetectorServiceFactory;
 import spark.Request;
 
-/**
- * Created by Vincenzo on 22/08/2015.
- */
 public class DAO {
     private UrlService urlService;
 
@@ -55,11 +52,11 @@ public class DAO {
 
     public String espandiUrl(Request request) {
         try {
-            String longURl=urlService.findURLByShortUrl(request.body());
-           UrlCustom url = new UrlCustom(longURl,request.body(),urlService.prendiStatisticheShortURL(request.body()));
+            String longURl = urlService.findURLByShortUrl(request.body());
+            UrlCustom url = new UrlCustom(longURl, request.body(), urlService.prendiStatisticheShortURL(request.body()));
             UserAgentStringParser parser = UADetectorServiceFactory.getResourceModuleParser();
             ReadableUserAgent agent = parser.parse(request.userAgent());
-           aggiornaUrl(agent, request.ip(), url);
+            aggiornaUrl(agent, request.ip(), url);
             aggiornaStatistiche(agent, request.ip());
             urlService.aumentaClick(url.getLongURL());
             return url.getLongURL();
@@ -87,21 +84,21 @@ public class DAO {
         }
         try {
             url = urlService.findUrlByLongURL(urlCustom.getLongURL());
-            urlService.aggiornaListaCustom(urlCustom.getLongURL(),urlCustom.getCustomURL());
+            urlService.aggiornaListaCustom(urlCustom.getLongURL(), urlCustom.getCustomURL());
         } catch (NullPointerException e) {
             url = new URL(urlCustom.getLongURL(), URLShortener.shortenURL(urlCustom.getLongURL()));
             urlService.createNewURL(url.getLongURL(), url.getShortURL());
             urlService.aggiornaListaCustom(urlCustom.getLongURL(), urlCustom.getCustomURL());
-           aggiungiSitoStatistiche();
+            aggiungiSitoStatistiche();
             return url;
         }
         return url;
     }
 
     public UrlCustom getUrlStatistics(String body) {
-        String longURl=urlService.findURLByShortUrl(body);
-        UrlCustom url = new UrlCustom(longURl,body,urlService.prendiStatisticheShortURL(body));
-       return url;
+        String longURl = urlService.findURLByShortUrl(body);
+        UrlCustom url = new UrlCustom(longURl, body, urlService.prendiStatisticheShortURL(body));
+        return url;
     }
 
     public Statistiche getStatistics() {
@@ -109,8 +106,8 @@ public class DAO {
     }
 
     private void aggiornaUrl(ReadableUserAgent agent, String ip, UrlCustom url) {
-       url.getStatistiche().addClickOS(agent.getOperatingSystem().getFamilyName());
-    url.getStatistiche().addClickBrowser(agent.getFamily().getName());
+        url.getStatistiche().addClickOS(agent.getOperatingSystem().getFamilyName());
+        url.getStatistiche().addClickBrowser(agent.getFamily().getName());
         url.getStatistiche().addNum();
         url.getStatistiche().addClickCountry(IPGeo.getCountry(ip));
         urlService.aggiornaStatisticheCustomURL(url);

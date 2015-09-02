@@ -2,21 +2,17 @@ package com.shorterner.entity;
 
 import com.mongodb.BasicDBObject;
 
-/**
- * Created by Vincenzo on 22/08/2015.
- */
 public class UrlCustom {
     private String longURL;
     private String customURL;
     private Statistiche statistiche;
 
 
-
-    public UrlCustom(String longURL,String customURL,BasicDBObject statistiche) {
-        this.longURL=longURL;
+    public UrlCustom(String longURL, String customURL, BasicDBObject statistiche) {
+        this.longURL = longURL;
         this.customURL = customURL;
 
-        this.statistiche=new Statistiche(statistiche);
+        this.statistiche = new Statistiche(statistiche);
     }
 
     public void setCustomURL(String customURL) {

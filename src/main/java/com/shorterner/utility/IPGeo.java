@@ -9,9 +9,6 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-/**
- * Created by Vincenzo on 25/08/2015.
- */
 public class IPGeo {
 
     public static String getCountry(String ip) {

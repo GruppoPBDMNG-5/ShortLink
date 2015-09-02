@@ -6,7 +6,7 @@ import junit.framework.TestCase;
 
 public class IPGeoTest extends TestCase {
 
-    private String[] cases =  {
+    private String[] cases = {
             "23.26.134.156",
             "23.17.167.88",
             "93.186.143.1",
@@ -67,7 +67,7 @@ public class IPGeoTest extends TestCase {
     }
 
     public void testGetCountry() throws Exception {
-        for(int i = 0; i < cases.length; i++) {
+        for (int i = 0; i < cases.length; i++) {
             result[i] = IPGeo.getCountry(cases[i]);
             assertTrue("CASE: " + (i + 1) + " EXPECTED: " + expected[i]
                     + " RESULT: " + result[i], result[i].equals(expected[i]));
