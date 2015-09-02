@@ -1,6 +1,6 @@
 function checkLongUrl(data) {
 
-    var re = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/|www\.)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+    var re = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/|www\.){0,1}[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
     if (data.toString().match(re)) {
         return true;
     } else {
@@ -11,7 +11,7 @@ function checkLongUrl(data) {
 
 function isLetterOrDigit(data) {
 
-    var re = /^[a-z0-9]+$/i;
+    var re = /^[a-z0-9_-]+$/i;
 
     if (data.toString().match(re)) {
         return true;
@@ -38,3 +38,4 @@ function isValid(data) {
     return isLetterOrDigit(data) && isNotABadWord(data);
 
 }
+

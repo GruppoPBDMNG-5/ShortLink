@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="763c5455-d918-4819-8059-3de808d4d969" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/shorterner/test/IPGeoTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/public/test/testCheck.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Bootstrap.java" afterPath="$PROJECT_DIR$/src/main/java/Bootstrap.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ShortLink.iml" afterPath="$PROJECT_DIR$/ShortLink.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/public/scripts/check.js" afterPath="$PROJECT_DIR$/src/main/resources/public/scripts/check.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/public/index.html" afterPath="$PROJECT_DIR$/src/main/resources/public/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="URLSHORT.iws" />
@@ -36,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Bootstrap.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,24 +45,51 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IPGeo.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shorterner/utility/IPGeo.java">
+      <file leaf-file-name="DAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shorterner/data_access/DAO.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
+              <caret line="142" column="5" selection-start-line="142" selection-start-column="5" selection-end-line="142" selection-end-column="5" />
+              <folding>
+                <element signature="docComment;class#DAO#0" expanded="false" />
+                <element signature="method#creaUrlShort#0;class#DAO#0" expanded="false" />
+                <element signature="method#espandiUrl#0;class#DAO#0" expanded="false" />
+                <element signature="method#getUrlStatistics#0;class#DAO#0" expanded="false" />
+                <element signature="method#aggiornaUrl#0;class#DAO#0" expanded="false" />
+                <element signature="method#aggiornaStatistiche#0;class#DAO#0" expanded="false" />
+                <element signature="method#isAvailable#0;class#DAO#0" expanded="false" />
+                <element signature="method#aggiungiSitoStatistiche#0;class#DAO#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/public/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6136986">
+              <caret line="61" column="79" selection-start-line="61" selection-start-column="79" selection-end-line="61" selection-end-column="79" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IPGeoTest.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shorterner/test/IPGeoTest.java">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/public/scripts/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36573312">
-              <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="check.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/public/scripts/check.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="2" column="78" selection-start-line="2" selection-start-column="78" selection-end-line="2" selection-end-column="78" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -73,8 +101,8 @@
       <list>
         <option value="Class" />
         <option value="JavaScript File" />
-        <option value="Html5" />
         <option value="JUnit3 Test Class" />
+        <option value="Html5" />
       </list>
     </option>
   </component>
@@ -136,16 +164,17 @@
         <option value="$PROJECT_DIR$/src/main/resources/public/views/long.html" />
         <option value="$PROJECT_DIR$/src/main/resources/public/scripts/interceptor.js" />
         <option value="$PROJECT_DIR$/src/main/resources/public/scripts/interceptors.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/public/index.html" />
         <option value="$PROJECT_DIR$/src/main/resources/public/views/404.html" />
         <option value="$PROJECT_DIR$/src/main/resources/public/views/createShort.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/public/scripts/app.js" />
-        <option value="$PROJECT_DIR$/src/main/resources/public/scripts/check.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shorterner/data_access/DAO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shorterner/entity/Statistiche.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shorterner/presentation/UrlService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Bootstrap.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shorterner/test/IPGeoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shorterner/data_access/DAO.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/scripts/app.js" />
+        <option value="$PROJECT_DIR$/src/main/java/Bootstrap.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/scripts/check.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/test/testCheck.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/public/index.html" />
       </list>
     </option>
   </component>
@@ -171,7 +200,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
+    <option name="width" value="1376" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -197,8 +226,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -284,6 +313,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="URLSHORT" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ShortLink" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -565,7 +624,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -609,7 +668,7 @@
       <recent name="com.shorterner.test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.IPGeoTest">
+  <component name="RunManager" selected="Application.Bootstrap">
     <configuration default="false" name="Bootstrap" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -905,6 +964,10 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
@@ -917,38 +980,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <extension name="scalaCoverage" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <extension name="scalaCoverage" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -1000,22 +1031,6 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <extension name="scalaCoverage" />
-      <module name="" />
-      <setting name="path" value="" />
-      <setting name="package" value="" />
-      <setting name="vmparams" value="" />
-      <setting name="params" value="" />
-      <setting name="workingDirectory" value="" />
-      <setting name="searchForTest" value="Across module dependencies" />
-      <setting name="testName" value="" />
-      <setting name="testKind" value="Class" />
-      <setting name="showProgressMessages" value="true" />
-      <envs />
-      <method />
-    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Application.Bootstrap" />
       <item index="1" class="java.lang.String" itemvalue="Application.BadWords" />
@@ -1025,8 +1040,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.IPGeoTest" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Bootstrap" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Bootstrap" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.IPGeoTest" />
         <item index="2" class="java.lang.String" itemvalue="Application.URLShortener" />
         <item index="3" class="java.lang.String" itemvalue="Application.UrlCustom" />
         <item index="4" class="java.lang.String" itemvalue="Application.BadWords" />
@@ -1083,6 +1098,8 @@
       <workItem from="1441132740074" duration="5494000" />
       <workItem from="1441186071127" duration="929000" />
       <workItem from="1441187678248" duration="4739000" />
+      <workItem from="1441193420652" duration="142000" />
+      <workItem from="1441202810256" duration="7805000" />
     </task>
     <task id="LOCAL-00001" summary="progetto base&#10;">
       <created>1440079514967</created>
@@ -1280,7 +1297,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88710000" />
+    <option name="totallyTimeSpent" value="96657000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1292,7 +1309,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1303,10 +1320,10 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53996736" sideWeight="0.6573939" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34015748" sideWeight="0.74351144" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34015748" sideWeight="0.74351144" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32440946" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5157421" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23529412" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24961832" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1407,20 +1424,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shorterner/utility/JsonTransformer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19604613">
-          <caret line="11" column="61" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/public/js/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.6721582">
@@ -1523,7 +1526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1562,13 +1564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-45.23077">
-          <caret line="83" column="39" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/public/views/404.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.10493827">
@@ -1583,20 +1578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4333333">
-          <caret line="43" column="135" selection-start-line="43" selection-start-column="135" selection-end-line="43" selection-end-column="135" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/views/createShort.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49173555">
-          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/public/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.7808895">
@@ -1608,7 +1589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.19604613">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1616,7 +1596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6359143">
           <caret line="72" column="33" selection-start-line="72" selection-start-column="33" selection-end-line="72" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1624,7 +1603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="102" column="38" selection-start-line="102" selection-start-column="38" selection-end-line="102" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1733,44 +1711,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shorterner/data_access/DAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5601318">
-          <caret line="138" column="0" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#DAO#0" expanded="false" />
-            <element signature="method#espandiUrl#0;class#DAO#0" expanded="false" />
-            <element signature="method#generaUrlCustom#0;class#DAO#0" expanded="false" />
-            <element signature="method#getUrlStatistics#0;class#DAO#0" expanded="false" />
-            <element signature="method#aggiornaUrl#0;class#DAO#0" expanded="false" />
-            <element signature="method#aggiornaStatistiche#0;class#DAO#0" expanded="false" />
-            <element signature="method#isAvailable#0;class#DAO#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shorterner/utility/URLShortener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="3.6128502">
           <caret line="132" column="17" selection-start-line="132" selection-start-column="17" selection-end-line="132" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/public/scripts/check.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42009884">
-          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Bootstrap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1781,7 +1725,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shorterner/utility/IPGeo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.1878089">
           <caret line="18" column="53" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
           <folding />
         </state>
@@ -1789,11 +1733,93 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shorterner/test/IPGeoTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36573312">
-          <caret line="42" column="21" selection-start-line="42" selection-start-column="21" selection-end-line="42" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.2520593">
+          <caret line="9" column="26" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/js/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-464.86984">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/views/createShort.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6437177">
+          <caret line="22" column="44" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Bootstrap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/scripts/check.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="78" selection-start-line="2" selection-start-column="78" selection-end-line="2" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/test/testCheck.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61445785">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <element signature="e#306#541#0" expanded="false" />
+            <element signature="e#576#771#0" expanded="false" />
+            <element signature="e#804#999#0" expanded="false" />
+            <element signature="e#1035#1211#0" expanded="false" />
+            <element signature="e#1242#1750#0" expanded="false" />
+            <element signature="e#1784#2071#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shorterner/data_access/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="142" column="5" selection-start-line="142" selection-start-column="5" selection-end-line="142" selection-end-column="5" />
+          <folding>
+            <element signature="docComment;class#DAO#0" expanded="false" />
+            <element signature="method#creaUrlShort#0;class#DAO#0" expanded="false" />
+            <element signature="method#espandiUrl#0;class#DAO#0" expanded="false" />
+            <element signature="method#getUrlStatistics#0;class#DAO#0" expanded="false" />
+            <element signature="method#aggiornaUrl#0;class#DAO#0" expanded="false" />
+            <element signature="method#aggiornaStatistiche#0;class#DAO#0" expanded="false" />
+            <element signature="method#isAvailable#0;class#DAO#0" expanded="false" />
+            <element signature="method#aggiungiSitoStatistiche#0;class#DAO#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/public/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6136986">
+          <caret line="61" column="79" selection-start-line="61" selection-start-column="79" selection-end-line="61" selection-end-column="79" />
+          <folding />
         </state>
       </provider>
     </entry>
