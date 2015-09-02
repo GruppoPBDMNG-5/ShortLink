@@ -58,7 +58,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>Bootstrap</mainClass>
+                            <mainClass>com.shorterner.main.Bootstrap</mainClass>
                             <classpathPrefix>dependency-jars/</classpathPrefix>
                         </manifest>
                     </archive>
@@ -89,7 +89,7 @@
                             </descriptorRefs>
                             <archive>
                                 <manifest>
-                                    <mainClass>Bootstrap</mainClass>
+                                    <mainClass>com.shorterner.main.Bootstrap</mainClass>
                                 </manifest>
                             </archive>
                         </configuration>

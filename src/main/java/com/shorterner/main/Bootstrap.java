@@ -1,3 +1,5 @@
+package com.shorterner.main;
+
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import com.shorterner.presentation.UrlResource;
