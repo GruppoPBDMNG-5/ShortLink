@@ -1,7 +1,8 @@
-package com.shorterner.presentation;
+package it.gruppopbdmng5.shortlink.presentation;
 
-import com.shorterner.data_access.DAO;
-import com.shorterner.utility.JsonTransformer;
+import it.gruppopbdmng5.shortlink.data_access.DAO;
+import it.gruppopbdmng5.shortlink.utility.JsonTransformer;
+import spark.Spark;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
@@ -17,7 +18,7 @@ public class UrlResource {
 
     private void setupEndpoints() {
 
-        post(API_CONTEXT + "/shortCustom", "application/json", (request, response) -> dao.generaUrlCustom(request.body()), new JsonTransformer());
+        Spark.post(API_CONTEXT + "/shortCustom", "application/json", (request, response) -> dao.generaUrlCustom(request.body()), new JsonTransformer());
 
         post(API_CONTEXT + "/short", "application/json", (request, response) -> dao.creaUrlShort(request.body()), new JsonTransformer());
 

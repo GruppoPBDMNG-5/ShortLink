@@ -1,9 +1,9 @@
-package com.shorterner.main;
+package it.gruppopbdmng5.shortlink.main;
 
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
-import com.shorterner.presentation.UrlResource;
-import com.shorterner.presentation.UrlService;
+import it.gruppopbdmng5.shortlink.presentation.UrlResource;
+import it.gruppopbdmng5.shortlink.presentation.UrlService;
 
 import static spark.Spark.*;
 

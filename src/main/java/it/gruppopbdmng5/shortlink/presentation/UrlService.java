@@ -1,10 +1,10 @@
-package com.shorterner.presentation;
+package it.gruppopbdmng5.shortlink.presentation;
 
 import com.mongodb.*;
 import com.mongodb.util.JSON;
-import com.shorterner.entity.Statistiche;
-import com.shorterner.entity.URL;
-import com.shorterner.entity.UrlCustom;
+import it.gruppopbdmng5.shortlink.entity.Statistiche;
+import it.gruppopbdmng5.shortlink.entity.URL;
+import it.gruppopbdmng5.shortlink.entity.UrlCustom;
 import org.bson.types.ObjectId;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.shorterner.entity;
+package it.gruppopbdmng5.shortlink.entity;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;

@@ -1,4 +1,4 @@
-package com.shorterner.utility;
+package it.gruppopbdmng5.shortlink.utility;
 
 import com.maxmind.geoip2.DatabaseReader;
 import com.maxmind.geoip2.exception.GeoIp2Exception;

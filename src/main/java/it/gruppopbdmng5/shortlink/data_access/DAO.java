@@ -1,13 +1,13 @@
-package com.shorterner.data_access;
+package it.gruppopbdmng5.shortlink.data_access;
 
 
 import com.google.gson.Gson;
-import com.shorterner.entity.Statistiche;
-import com.shorterner.entity.URL;
-import com.shorterner.entity.UrlCustom;
-import com.shorterner.presentation.UrlService;
-import com.shorterner.utility.IPGeo;
-import com.shorterner.utility.URLShortener;
+import it.gruppopbdmng5.shortlink.entity.Statistiche;
+import it.gruppopbdmng5.shortlink.entity.URL;
+import it.gruppopbdmng5.shortlink.entity.UrlCustom;
+import it.gruppopbdmng5.shortlink.presentation.UrlService;
+import it.gruppopbdmng5.shortlink.utility.IPGeo;
+import it.gruppopbdmng5.shortlink.utility.URLShortener;
 import net.sf.uadetector.ReadableUserAgent;
 import net.sf.uadetector.UserAgentStringParser;
 import net.sf.uadetector.service.UADetectorServiceFactory;

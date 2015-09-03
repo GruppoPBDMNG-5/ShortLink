@@ -1,4 +1,4 @@
-package com.shorterner.utility;
+package it.gruppopbdmng5.shortlink.utility;
 
 import com.google.gson.Gson;
 import spark.Response;

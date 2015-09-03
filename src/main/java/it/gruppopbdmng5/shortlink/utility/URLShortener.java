@@ -1,4 +1,4 @@
-package com.shorterner.utility;
+package it.gruppopbdmng5.shortlink.utility;
 
 import java.util.HashMap;
 import java.util.Random;
