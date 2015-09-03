@@ -76,7 +76,7 @@ public class DAO {
         UrlCustom urlCustom = new Gson().fromJson(body, UrlCustom.class);
         urlCustom.setCustomURL("http://localhost:8080/#/" + urlCustom.getCustomURL());
         URL url = null;
-        if (isAvailable(urlCustom) == INDISPONIBILE)
+        if (isAvailable(urlCustom) == INDISPONIBILE || isViewName(urlCustom))
             return null;
         if (isAvailable(urlCustom) == DISPONIBILE_USO) {
             url = urlService.findUrlByLongURL(urlCustom.getLongURL());
@@ -119,6 +119,12 @@ public class DAO {
         statistiche.addClickOS(agent.getOperatingSystem().getFamilyName());
         statistiche.addClickCountry(IPGeo.getCountry(ip));
         urlService.aggiornaStatistiche(statistiche);
+    }
+
+    private boolean isViewName(UrlCustom urlCustom) {
+        if(urlCustom.getCustomURL().equals("http://localhost:8080/#/topSites"))
+            return true;
+        return false;
     }
 
     private int isAvailable(UrlCustom customURL) {
