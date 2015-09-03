@@ -1,5 +1,3 @@
-package it.gruppopbdmng5.shortlink.test;
-
 import it.gruppopbdmng5.shortlink.utility.IPGeo;
 import junit.framework.TestCase;
 
