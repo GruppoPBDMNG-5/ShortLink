@@ -1,5 +1,3 @@
-package it.gruppopbdmng5.shortlink.main;
-
 import com.mongodb.DB;
 import com.mongodb.MongoClient;
 import it.gruppopbdmng5.shortlink.presentation.UrlResource;
