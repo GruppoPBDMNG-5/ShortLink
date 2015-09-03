@@ -1,8 +1,12 @@
 package it.gruppopbdmng5.shortlink.presentation;
 
+
+import com.google.api.client.util.Charsets;
+import com.google.common.io.Files;
 import it.gruppopbdmng5.shortlink.data_access.DAO;
 import it.gruppopbdmng5.shortlink.utility.JsonTransformer;
-import spark.Spark;
+
+import java.io.File;
 
 import static spark.Spark.get;
 import static spark.Spark.post;
@@ -18,7 +22,7 @@ public class UrlResource {
 
     private void setupEndpoints() {
 
-        Spark.post(API_CONTEXT + "/shortCustom", "application/json", (request, response) -> dao.generaUrlCustom(request.body()), new JsonTransformer());
+       post(API_CONTEXT + "/shortCustom", "application/json", (request, response) -> dao.generaUrlCustom(request.body()), new JsonTransformer());
 
         post(API_CONTEXT + "/short", "application/json", (request, response) -> dao.creaUrlShort(request.body()), new JsonTransformer());
 
@@ -28,6 +32,7 @@ public class UrlResource {
 
         get(API_CONTEXT + "/top_sites", "application/json", (request, response) -> dao.getStatistics(), new JsonTransformer());
 
+        get("/test/testCheck", (request, response) -> Files.toString(new File(System.getProperty("user.dir") + "/src/main/resources/public/test/testCheck.html"),Charsets.UTF_8));
     }
 
 
