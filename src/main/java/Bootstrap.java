@@ -26,7 +26,7 @@ public class Bootstrap {
 
 
     private static DB mongo() throws Exception {
-        MongoClient mongoClient = new MongoClient("locahost");
+        MongoClient mongoClient = new MongoClient("127.0.0.1");
         return mongoClient.getDB("shortlink");
     }
 
