@@ -8,6 +8,7 @@ import it.gruppopbdmng5.shortlink.entity.UrlCustom;
 import it.gruppopbdmng5.shortlink.presentation.UrlService;
 import it.gruppopbdmng5.shortlink.utility.IPGeo;
 import it.gruppopbdmng5.shortlink.utility.URLShortener;
+import it.gruppopbdmng5.shortlink.utility.UserAgentInfo;
 import net.sf.uadetector.ReadableUserAgent;
 import net.sf.uadetector.UserAgentStringParser;
 import net.sf.uadetector.service.UADetectorServiceFactory;
@@ -54,10 +55,9 @@ public class DAO {
         try {
             String longURl = urlService.findURLByShortUrl(request.body());
             UrlCustom url = new UrlCustom(longURl, request.body(), urlService.prendiStatisticheShortURL(request.body()));
-            UserAgentStringParser parser = UADetectorServiceFactory.getResourceModuleParser();
-            ReadableUserAgent agent = parser.parse(request.userAgent());
-            aggiornaUrl(agent, request.ip(), url);
-            aggiornaStatistiche(agent, request.ip());
+            UserAgentInfo userAgentInfo=new UserAgentInfo(request.userAgent());
+            aggiornaUrl(userAgentInfo, request.ip(), url);
+            aggiornaStatistiche(userAgentInfo, request.ip());
             urlService.aumentaClick(url.getLongURL());
             return url.getLongURL();
         } catch (NullPointerException e) {
@@ -105,18 +105,18 @@ public class DAO {
         return urlService.prendiStatistiche();
     }
 
-    private void aggiornaUrl(ReadableUserAgent agent, String ip, UrlCustom url) {
-        url.getStatistiche().addClickOS(agent.getOperatingSystem().getFamilyName());
-        url.getStatistiche().addClickBrowser(agent.getFamily().getName());
+    private void aggiornaUrl(UserAgentInfo agent, String ip, UrlCustom url) {
+        url.getStatistiche().addClickOS(agent.getOS());
+        url.getStatistiche().addClickBrowser(agent.getBrowser());
         url.getStatistiche().addNum();
         url.getStatistiche().addClickCountry(IPGeo.getCountry(ip));
         urlService.aggiornaStatisticheCustomURL(url);
     }
 
-    private void aggiornaStatistiche(ReadableUserAgent agent, String ip) {
+    private void aggiornaStatistiche(UserAgentInfo agent, String ip) {
         Statistiche statistiche = urlService.prendiStatistiche();
-        statistiche.addClickBrowser(agent.getFamily().getName());
-        statistiche.addClickOS(agent.getOperatingSystem().getFamilyName());
+        statistiche.addClickBrowser(agent.getBrowser());
+        statistiche.addClickOS(agent.getOS());
         statistiche.addClickCountry(IPGeo.getCountry(ip));
         urlService.aggiornaStatistiche(statistiche);
     }
