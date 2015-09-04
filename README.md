@@ -1,4 +1,4 @@
-# ShortLink
+# Skim.py
 
 
 ### Installation
