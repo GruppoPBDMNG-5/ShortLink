@@ -2,6 +2,7 @@ package it.gruppopbdmng5.shortlink.data_access;
 
 
 import com.google.gson.Gson;
+import com.sun.jndi.toolkit.url.Uri;
 import it.gruppopbdmng5.shortlink.entity.Statistiche;
 import it.gruppopbdmng5.shortlink.entity.URL;
 import it.gruppopbdmng5.shortlink.entity.UrlCustom;
@@ -13,6 +14,8 @@ import net.sf.uadetector.ReadableUserAgent;
 import net.sf.uadetector.UserAgentStringParser;
 import net.sf.uadetector.service.UADetectorServiceFactory;
 import spark.Request;
+
+import java.awt.*;
 
 public class DAO {
     private UrlService urlService;
@@ -96,14 +99,20 @@ public class DAO {
     }
 
     public UrlCustom getUrlStatistics(String body) {
-        String longURl = urlService.findURLByShortUrl(body);
-        UrlCustom url = new UrlCustom(longURl, body, urlService.prendiStatisticheShortURL(body));
-        return url;
+        try {
+            String longURl = urlService.findURLByShortUrl(body);
+            UrlCustom url = new UrlCustom(longURl, body, urlService.prendiStatisticheShortURL(body));
+            return url;
+        } catch (NullPointerException e) {
+            return null;
+        }
+
     }
 
     public Statistiche getStatistics() {
         return urlService.prendiStatistiche();
     }
+
 
     private void aggiornaUrl(UserAgentInfo agent, String ip, UrlCustom url) {
         url.getStatistiche().addClickOS(agent.getOS());
