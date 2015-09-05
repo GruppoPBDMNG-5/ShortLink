@@ -95,12 +95,35 @@
             false
         ];
 
+        var domains_cases = [
+            "treasurebook1.co.uk",
+            "treching.net",
+            "trenz.pl",
+            "treplikon.com",
+            "trickip.org",
+            "trident-fall.com",
+            "google.com",
+            "www.youtube.com"
+        ];
+
+        var domains_expected = [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            true
+        ];
+
         QUnit.test("Bad Words", function (assert) {
             function test(then, expected, value) {
                 assert.equal(isNotABadWord(then), expected, value);
             }
+
             for (var i = 0; i < badWords_cases.length; i++) {
-                test(badWords_cases[i], badWords_expected[i], badWords_cases[i]);
+                test(badWords_cases[i], badWords_expected[i], badWords_cases[i] + (isNotABadWord(badWords_cases[i]) == true ? " - Allowed" : " - Not allowed"));
             }
         });
 
@@ -108,8 +131,9 @@
             function test(then, expected, value) {
                 assert.equal(isLetterOrDigit(then), expected, value);
             }
+
             for (var i = 0; i < customURL_cases.length; i++) {
-                test(customURL_cases[i], customURL_expected[i], customURL_cases[i]);
+                test(customURL_cases[i], customURL_expected[i], customURL_cases[i] + (isLetterOrDigit(customURL_cases[i]) == true ? " - Allowed" : " - Not allowed"));
             }
         });
 
@@ -117,8 +141,19 @@
             function test(then, expected, value) {
                 assert.equal(checkLongUrl(then), expected, value);
             }
+
             for (var i = 0; i < longURL_cases.length; i++) {
-                test(longURL_cases[i], longURL_expected[i], longURL_cases[i]);
+                test(longURL_cases[i], longURL_expected[i], longURL_cases[i] + (checkLongUrl(longURL_cases[i]) == true ? " - Allowed" : " - Not allowed"));
+            }
+        });
+
+        QUnit.test("Bad Domain", function (assert) {
+            function test(then, expected, value) {
+                assert.equal(isNotABadDomain(then), expected, value);
+            }
+
+            for (var i = 0; i < domains_cases.length; i++) {
+                test(domains_cases[i], domains_expected[i], domains_cases[i] + (isNotABadDomain(domains_cases[i]) == true ? " - Allowed" : " - Not allowed"));
             }
         });
 

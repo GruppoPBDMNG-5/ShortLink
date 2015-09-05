@@ -2,7 +2,7 @@ var app = angular.module('shortLink');
 app.controller('createShortController', ['$scope', '$http', function ($scope, $http) {
 
     $scope.createUrl = function () {
-        if (checkLongUrl($scope.URL.longURL)) {
+        if (isDomainValid($scope.URL.longURL)) {
             if (!$scope.URL.customURL) {
                 $http.post('/api/v1/short', $scope.URL.longURL).success(function (data) {
                     var short = data['shortURL'];
