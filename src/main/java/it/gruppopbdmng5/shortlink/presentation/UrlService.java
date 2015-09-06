@@ -21,8 +21,10 @@ public class UrlService {
         this.db = db;
         this.collection = db.getCollection("url");
         this.collectionStatistiche = db.getCollection("statistiche");
-        this.collection.createIndex(new BasicDBObject("customURL", 1), "customURL", true);
         this.collection.createIndex(new BasicDBObject("click", -1));
+
+
+        this.collection.createIndex(new BasicDBObject("customURL.URL", 1), "customURL", true);
     }
 
     public void popoladb() {

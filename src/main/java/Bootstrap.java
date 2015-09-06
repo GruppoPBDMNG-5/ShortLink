@@ -16,8 +16,8 @@ public class Bootstrap {
         try {
             UrlService s = new UrlService(mongo());
             new UrlResource(s);
-           // s.droppadb();
-           // s.popoladb();
+//           s.droppadb();
+//            s.popoladb();
         } catch (Exception e) {
             e.printStackTrace();
         }
