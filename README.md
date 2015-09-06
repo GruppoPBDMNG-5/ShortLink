@@ -8,12 +8,12 @@
 
 
 ```sh
-$ git clone https://github.com/GruppoPBDMNG-5/ShortLink
-$ cd  ShortLink
-$ docker build -t gruppo_pbdmng-5/shortlink . 
-$ docker run -d -p 8080:8080 -p 27017:27017 --name=shortlink gruppo_pbdmng-5/shortlink
-$ docker exec -it shortlink bash
-$ ./start
+git clone https://github.com/GruppoPBDMNG-5/Skim.py
+cd  Skim.py
+docker build -t gruppo_pbdmng-5/skimpy . 
+docker run -d -p 8080:8080 -p 27017:27017 --name=skimpy gruppo_pbdmng-5/skimpy
+docker exec -it skimpy bash
+./start
 ```
 
 ### Port Forwarding
