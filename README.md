@@ -25,4 +25,5 @@ Host IP-----Port-----Guest IP----Port
 * Go [localhost:8080](localhost:8080)
 * Fun
 
-
+### Test Check.js
+* Go [http://localhost:8080/test/testCheck](http://localhost:8080/test/testCheck)
